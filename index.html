@@ -98,4 +98,164 @@
     .proj .meta{color:var(--muted); font-size:12px; margin-bottom:6px}
     .proj h3{margin:0 0 8px}
     .proj p{margin:0; color:var(--muted)}
-    fo
+    footer{
+      margin-top:32px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:13px;
+    }
+    @media (max-width: 920px){
+      .hero{grid-template-columns: 1fr}
+      .grid{grid-template-columns: 1fr}
+      .projects{grid-template-columns: 1fr}
+      h1{font-size:36px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div style="font-weight:700">Mahvelati Studio</div>
+          <div style="color:var(--muted); font-size:13px">Design × Data Science × Environmental Engineering</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#focus">Focus</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <div class="card hero-left">
+        <div class="kicker">Applied Research & Platforms</div>
+        <h1>Build credible, deployable science.</h1>
+        <p class="tagline">
+          I combine <b>AI</b>, <b>industrial engineering</b>, and <b>environmental engineering</b> to deliver
+          research-grade models and practical digital platforms.
+        </p>
+
+        <div class="pills">
+          <div class="pill">Time-series forecasting</div>
+          <div class="pill">Anomaly detection</div>
+          <div class="pill">Resilience metrics</div>
+          <div class="pill">Data ontology</div>
+          <div class="pill">Digital twin (LCA/TEA-ready)</div>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="#contact">Contact</a>
+          <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://scholar.google.com/" target="_blank" rel="noreferrer">Google Scholar</a>
+          <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="card hero-right">
+        <div class="mini">
+          <h3>Professional email</h3>
+          <p>Use <b>alireza@mahvelatistudio.com</b> for publications & industry.</p>
+        </div>
+        <div class="mini">
+          <h3>Now</h3>
+          <p>Launching the studio site + publishing selected projects with clean demos.</p>
+        </div>
+        <div class="mini">
+          <h3>Available</h3>
+          <p>Research collaboration · consulting · platform prototypes · scientific writing support.</p>
+        </div>
+      </div>
+    </div>
+
+    <section id="focus">
+      <div class="section-title">
+        <h2>Focus</h2>
+        <span>What I build</span>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Environmental AI</h3>
+          <p>Forecasting, anomaly detection, uncertainty, and decision-ready evaluation.</p>
+        </div>
+        <div class="card">
+          <h3>Platforms & Ontology</h3>
+          <p>Palantir-inspired “Foundry-lite” pipelines, schemas, and reproducible data products.</p>
+        </div>
+        <div class="card">
+          <h3>Digital Twin Thinking</h3>
+          <p>From catalyst/interface to reactor/process, with audit-ready cost/energy tracking.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-title">
+        <h2>Selected projects</h2>
+        <span>(I’ll keep adding as the site evolves)</span>
+      </div>
+
+      <div class="projects">
+        <div class="card proj">
+          <div class="meta">AI · Water systems</div>
+          <h3>Urban Water Quality Resilience (CRPS framework)</h3>
+          <p>State-space trajectories, 4R metrics from time-series, and scenario-driven evaluation.</p>
+        </div>
+
+        <div class="card proj">
+          <div class="meta">Platform · Data engineering</div>
+          <h3>Foundry-lite MVP</h3>
+          <p>Kafka → ingestion → TimescaleDB telemetry + ontology model, reproducible and demo-ready.</p>
+        </div>
+
+        <div class="card proj">
+          <div class="meta">CO₂ · Optimization</div>
+          <h3>K-CarbonLoop Digital Twin (Track B demo)</h3>
+          <p>CO₂ → CO pathway with uncertainty + Pareto optimization, prepared for proposal workflows.</p>
+        </div>
+
+        <div class="card proj">
+          <div class="meta">ML · Forecasting</div>
+          <h3>Multi-horizon TN forecasting (STOTEN revision)</h3>
+          <p>Robust training, leakage guards, ablations, and clean reporting for reviewers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <span>Let’s build something real</span>
+      </div>
+
+      <div class="card" style="padding:18px">
+        <p style="margin:0; color:var(--muted)">
+          Email:
+          <a href="mailto:alireza@mahvelatistudio.com" style="color:var(--text); font-weight:600">
+            alireza@mahvelatistudio.com
+          </a>
+          <br />
+          Current inbox destination (routing): <span style="color:var(--text)">a.mahvelato1981@gmail.com</span>
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Mahvelati Studio</div>
+      <div>Hosted on Cloudflare Pages · Built from GitHub</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

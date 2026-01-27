@@ -458,62 +458,89 @@
 
       <!-- PROJECTS -->
       <section id="projects">
-        <div class="section-title">
-          <h2>Selected projects</h2>
-          <span>Short, concrete, advisor-readable</span>
-        </div>
+  <div class="section-title">
+    <h2>Selected projects</h2>
+    <span>BLESS-aligned (ENWT · N removal · biogas · AI/genomics-ready)</span>
+  </div>
 
-        <div class="projects">
-          <article class="card glass proj">
-            <div class="meta">
-              <span class="chip">AI · Water systems</span>
-              <span class="chip ok">Active</span>
-            </div>
-            <h3>Urban Water Quality Resilience (CRPS framework)</h3>
-            <p>State-space trajectories, 4R metrics from time-series, scenario-driven evaluation, and robustness under climate regimes.</p>
-            <div class="links">
-              <a href="#contact">Ask for demo</a>
-              <a href="/projects/crps" aria-label="Project page (optional)">Project page</a>
-            </div>
-          </article>
+  <div class="projects">
 
-          <article class="card glass proj">
-            <div class="meta">
-              <span class="chip">Platform · Data engineering</span>
-              <span class="chip warn">Prototype</span>
-            </div>
-            <h3>Ontology-driven telemetry pipeline (Foundry-lite MVP)</h3>
-            <p>Ingestion → telemetry storage → ontology model → reproducible outputs. Designed for auditability and clean handoffs.</p>
-            <div class="links">
-              <a href="https://github.com/Alirezashams-ux" target="_blank" rel="noopener noreferrer">Repository</a>
-            </div>
-          </article>
+    <!-- 1) ENWT / Novel N removal + AI (top priority) -->
+    <article class="card glass proj">
+      <div class="meta">
+        <span class="chip">ENWT · Novel N removal</span>
+        <span class="chip ok">Active</span>
+        <span class="chip">Forecasting + anomaly</span>
+      </div>
+      <h3>Operational SciML for WWTP water-quality resilience under climate stress</h3>
+      <p>
+        Multi-contaminant forecasting and anomaly detection for real plant conditions:
+        daily sampling constraints, wet-weather shocks, regime shifts, and sensor drift.
+        Outputs are decision-ready (risk-of-violation, early warnings, recovery metrics).
+      </p>
+      <div class="links">
+        <a href="#contact">Request 1-page summary</a>
+        <a href="#publications">Related work</a>
+      </div>
+    </article>
 
-          <article class="card glass proj">
-            <div class="meta">
-              <span class="chip">CO₂ · Digital twin</span>
-              <span class="chip warn">Proposal-ready</span>
-            </div>
-            <h3>K-CarbonLoop Digital Twin (Track B demo)</h3>
-            <p>CO₂ → CO pathway with uncertainty and Pareto optimization; structured for TEA/LCA integration and reproducible reporting.</p>
-            <div class="links">
-              <a href="#contact">Request materials</a>
-            </div>
-          </article>
+    <!-- 2) Microbial / Genomics-ready monitoring (BLESS differentiator) -->
+    <article class="card glass proj">
+      <div class="meta">
+        <span class="chip">Environmental biotechnology</span>
+        <span class="chip warn">In build</span>
+        <span class="chip">Genomics-ready</span>
+      </div>
+      <h3>Pathway-aware monitoring: linking process states to microbial function signals</h3>
+      <p>
+        A framework to connect operational trajectories (DO/ORP, loading, salinity, temperature, wet-weather memory)
+        to microbial pathway indicators (e.g., nitrification/denitrification/Anammox activity proxies),
+        designed to integrate metagenomic/16S features as “biological sensors.”
+      </p>
+      <div class="links">
+        <a href="#contact">Discuss BLESS integration</a>
+      </div>
+    </article>
 
-          <article class="card glass proj">
-            <div class="meta">
-              <span class="chip">ML · WWTP</span>
-              <span class="chip warn">In revision</span>
-            </div>
-            <h3>Multi-horizon forecasting + leakage guards</h3>
-            <p>Clean ablations, regime split analysis, and guardrails against proxy leakage; tuned for review-ready reporting.</p>
-            <div class="links">
-              <a href="#publications">Related paper</a>
-            </div>
-          </article>
-        </div>
-      </section>
+    <!-- 3) Biogas / Anaerobic digestion + modeling (BLESS pillar) -->
+    <article class="card glass proj">
+      <div class="meta">
+        <span class="chip">Biogas · Anaerobic digestion</span>
+        <span class="chip warn">Proposal-ready</span>
+        <span class="chip">Process modeling</span>
+      </div>
+      <h3>AD/biogas process intelligence for stability, VFA risk, and energy recovery</h3>
+      <p>
+        Predictive monitoring for AD stability (VFA/alkalinity/pH dynamics),
+        early warnings for upsets, and controllable levers for energy-positive operation.
+        Built to be compatible with lab-scale reactor datasets and BLESS workflows.
+      </p>
+      <div class="links">
+        <a href="#contact">Request draft plan</a>
+      </div>
+    </article>
+
+    <!-- 4) Carbon redirection / CCUS synergy (keep, but not “main”) -->
+    <article class="card glass proj">
+      <div class="meta">
+        <span class="chip">Carbon capture / CCUS</span>
+        <span class="chip ok">Published</span>
+        <span class="chip">ICCU/ICCC</span>
+      </div>
+      <h3>Integrated CO₂ capture–conversion (ICCU): review + experimental sorbent work</h3>
+      <p>
+        Published review on sustainable CO₂ capture, conversion, and integrated strategies.
+        Experimental work in preparation on nanoparticle-augmented diatom biosilica sorbents:
+        humidity/temperature robustness and recyclability across cycles.
+      </p>
+      <div class="links">
+        <a href="https://doi.org/10.3390/ijms27020847" target="_blank" rel="noopener noreferrer">DOI</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
 
       <!-- PUBLICATIONS -->
       <section id="publications" class="pubs">

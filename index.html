@@ -3,73 +3,168 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mahvelati Studio</title>
-  <meta name="description" content="Mahvelati Studio — Design × Data Science × Environmental Engineering. Research, platforms, and applied AI." />
+  <title>Alireza Mahvelati Shamsabadi | Mahvelati Studio</title>
+  <meta name="description" content="Alireza Mahvelati Shamsabadi — PhD Candidate (Environmental Engineering, University of Ulsan). Operational SciML for WWTP monitoring, resilience, and climate-aware decision support; CCUS/ICCU research and deployable digital twins." />
   <meta name="theme-color" content="#0b0f1a" />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Alireza Mahvelati Shamsabadi | Environmental AI & Resilient Infrastructure" />
+  <meta property="og:description" content="Operational SciML for WWTP monitoring, anomaly detection, and resilience under climate stress. Publications, projects, and contact." />
+  <meta property="og:type" content="website" />
+  <!-- Optional: add a social preview image -->
+  <!-- <meta property="og:image" content="https://mahvelatistudio.com/og.png" /> -->
+
   <style>
     :root{
-      --bg:#0b0f1a; --card:#11182a; --text:#e7ecff; --muted:#a9b3d6;
-      --line:rgba(255,255,255,.10); --accent:#7aa2ff; --accent2:#7cffc7;
+      --bg:#0b0f1a;
+      --card:#10182b;
+      --card2:#0f1627;
+      --text:#e7ecff;
+      --muted:#a9b3d6;
+      --muted2:#7f89ad;
+      --line:rgba(255,255,255,.10);
+      --accent:#7aa2ff;
+      --accent2:#7cffc7;
       --shadow:0 14px 38px rgba(0,0,0,.35);
       --radius:18px;
+      --radius2:22px;
+      --max:1100px;
     }
+
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
-      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1000px 700px at 20% -10%, rgba(122,162,255,.30), transparent 55%),
-                  radial-gradient(900px 600px at 90% 10%, rgba(124,255,199,.18), transparent 55%),
-                  var(--bg);
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1100px 720px at 15% -10%, rgba(122,162,255,.30), transparent 55%),
+        radial-gradient(900px 650px at 90% 0%, rgba(124,255,199,.18), transparent 55%),
+        radial-gradient(800px 500px at 70% 110%, rgba(122,162,255,.12), transparent 60%),
+        var(--bg);
       color:var(--text);
-      line-height:1.55;
+      line-height:1.6;
     }
+
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:1040px; margin:0 auto; padding:36px 20px 60px}
-    header{display:flex; justify-content:space-between; align-items:center; gap:16px; padding:10px 0 34px}
-    .brand{display:flex; align-items:center; gap:12px}
+    .wrap{max-width:var(--max); margin:0 auto; padding:34px 18px 60px}
+    .skip{
+      position:absolute; left:-999px; top:10px; background:rgba(255,255,255,.08);
+      border:1px solid var(--line); padding:10px 12px; border-radius:12px;
+    }
+    .skip:focus{left:18px; z-index:9999}
+
+    header{
+      display:flex; justify-content:space-between; align-items:center; gap:14px;
+      padding:10px 0 26px;
+    }
+
+    .brand{display:flex; align-items:center; gap:12px; min-width:260px}
     .logo{
-      width:36px; height:36px; border-radius:12px;
+      width:38px; height:38px; border-radius:14px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 10px 25px rgba(122,162,255,.25);
+      box-shadow: 0 12px 28px rgba(122,162,255,.25);
+      flex:0 0 auto;
     }
-    nav{display:flex; gap:14px; flex-wrap:wrap}
+    .brand .title{font-weight:760; letter-spacing:.2px}
+    .brand .sub{color:var(--muted); font-size:13px}
+
+    nav{display:flex; gap:10px; flex-wrap:wrap}
     nav a{
-      padding:8px 10px; border-radius:12px; color:var(--muted);
+      padding:8px 10px;
+      border-radius:12px;
+      color:var(--muted);
       border:1px solid transparent;
+      transition: transform .15s ease, border-color .15s ease, color .15s ease, background .15s ease;
     }
-    nav a:hover{border-color:var(--line); color:var(--text)}
-    .hero{
-      display:grid; grid-template-columns: 1.2fr .8fr; gap:22px;
-      align-items:stretch;
+    nav a:hover{
+      border-color:var(--line);
+      color:var(--text);
+      background: rgba(255,255,255,.03);
+      transform: translateY(-1px);
     }
+
+    /* Cards */
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
       border:1px solid var(--line);
-      border-radius:var(--radius);
+      border-radius:var(--radius2);
       box-shadow: var(--shadow);
     }
-    .hero-left{padding:28px}
-    .kicker{color:var(--muted); letter-spacing:.16em; text-transform:uppercase; font-size:12px}
-    h1{margin:10px 0 8px; font-size:42px; line-height:1.1}
-    .tagline{color:var(--muted); margin:0 0 18px; font-size:16px}
+    .glass{
+      background: linear-gradient(180deg, rgba(16,24,43,.72), rgba(16,24,43,.35));
+      backdrop-filter: blur(10px);
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .hero-left{padding:26px}
+    .kicker{
+      color:var(--muted2);
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-size:12px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .kicker:before{
+      content:"";
+      width:12px; height:12px; border-radius:4px;
+      background: linear-gradient(135deg, rgba(122,162,255,.9), rgba(124,255,199,.75));
+      box-shadow: 0 0 0 3px rgba(122,162,255,.15);
+    }
+    h1{
+      margin:10px 0 10px;
+      font-size:40px;
+      line-height:1.1;
+      letter-spacing:-.6px;
+    }
+    .tagline{
+      color:var(--muted);
+      margin:0 0 16px;
+      font-size:16px;
+      max-width:68ch;
+    }
+
     .pills{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
     .pill{
-      font-size:13px; color:var(--text);
-      padding:8px 10px; border-radius:999px; border:1px solid var(--line);
+      font-size:13px;
+      color:var(--text);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
       background: rgba(255,255,255,.03);
+      white-space:nowrap;
     }
-    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .pill.strong{
+      border-color: rgba(122,162,255,.45);
+      background: linear-gradient(135deg, rgba(122,162,255,.22), rgba(124,255,199,.10));
+    }
+
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:11px 14px; border-radius:14px; border:1px solid var(--line);
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:11px 13px;
+      border-radius:14px;
+      border:1px solid var(--line);
       background: rgba(255,255,255,.04);
       color:var(--text);
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
     }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.18)}
     .btn.primary{
       border-color: rgba(122,162,255,.45);
-      background: linear-gradient(135deg, rgba(122,162,255,.35), rgba(124,255,199,.18));
+      background: linear-gradient(135deg, rgba(122,162,255,.35), rgba(124,255,199,.16));
     }
-    .btn:hover{transform: translateY(-1px)}
-    .hero-right{padding:22px; display:flex; flex-direction:column; gap:12px}
+
+    .hero-right{padding:18px; display:flex; flex-direction:column; gap:12px}
     .mini{
       padding:16px;
       border-radius:16px;
@@ -78,28 +173,95 @@
     }
     .mini h3{margin:0 0 6px; font-size:15px}
     .mini p{margin:0; color:var(--muted); font-size:13px}
-    .grid{
-      margin-top:22px;
+    .mini .small{color:var(--muted2); font-size:12px; margin-top:8px}
+
+    /* About row */
+    .about{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .about .card{padding:18px}
+    .about h2{margin:0 0 10px; font-size:16px}
+    .about p{margin:0; color:var(--muted); font-size:14px}
+
+    .kv{display:grid; grid-template-columns: 120px 1fr; gap:8px 12px; margin-top:10px}
+    .kv div{font-size:13px}
+    .kv .k{color:var(--muted2)}
+    .kv .v{color:var(--text)}
+    .kv a{border-bottom:1px dashed rgba(255,255,255,.25)}
+    .kv a:hover{border-bottom-color: rgba(124,255,199,.6)}
+
+    /* Sections */
+    section{margin-top:28px}
+    .section-title{
+      display:flex; align-items:end; justify-content:space-between;
+      gap:10px; margin:0 0 10px;
+    }
+    .section-title h2{margin:0; font-size:18px}
+    .section-title span{color:var(--muted); font-size:13px}
+
+    .grid3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap:14px;
     }
-    .grid .card{padding:18px}
-    .grid h3{margin:0 0 8px; font-size:16px}
-    .grid p{margin:0; color:var(--muted); font-size:14px}
-    section{margin-top:26px}
-    .section-title{display:flex; align-items:end; justify-content:space-between; gap:10px; margin:0 0 10px}
-    .section-title h2{margin:0; font-size:18px}
-    .section-title span{color:var(--muted); font-size:13px}
+    .grid3 .card{padding:18px}
+    .grid3 h3{margin:0 0 8px; font-size:16px}
+    .grid3 p{margin:0; color:var(--muted); font-size:14px}
+
+    /* Projects */
     .projects{
-      display:grid; grid-template-columns: repeat(2, 1fr); gap:14px;
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:14px;
     }
     .proj{padding:18px}
-    .proj .meta{color:var(--muted); font-size:12px; margin-bottom:6px}
-    .proj h3{margin:0 0 8px}
-    .proj p{margin:0; color:var(--muted)}
+    .meta{
+      display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+      color:var(--muted2);
+      font-size:12px;
+      margin-bottom:8px;
+    }
+    .chip{
+      padding:4px 8px; border-radius:999px; border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:12px;
+    }
+    .chip.ok{border-color: rgba(124,255,199,.35); color: rgba(124,255,199,.95)}
+    .chip.warn{border-color: rgba(122,162,255,.35); color: rgba(122,162,255,.95)}
+    .proj h3{margin:0 0 8px; font-size:16px}
+    .proj p{margin:0; color:var(--muted); font-size:14px}
+    .proj .links{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap}
+    .proj .links a{color:var(--text); font-weight:600; font-size:13px; border-bottom:1px dashed rgba(255,255,255,.25)}
+    .proj .links a:hover{border-bottom-color: rgba(122,162,255,.7)}
+
+    /* Publications */
+    .pubs .card{padding:18px}
+    .pub{
+      padding:14px 0;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+    .pub:first-child{border-top:none; padding-top:0}
+    .pub .t{font-weight:700; margin:0 0 6px}
+    .pub .d{color:var(--muted); margin:0; font-size:14px}
+    .pub .d a{border-bottom:1px dashed rgba(255,255,255,.25)}
+    .pub .d a:hover{border-bottom-color: rgba(124,255,199,.6)}
+    .pub .tags{margin-top:8px; display:flex; gap:8px; flex-wrap:wrap}
+
+    /* Contact */
+    .contact .card{padding:18px}
+    .contact p{margin:0; color:var(--muted); font-size:14px}
+    .contact strong{color:var(--text)}
+    .contact .row{display:flex; flex-wrap:wrap; gap:12px; margin-top:12px}
+    .contact .row a{border-bottom:1px dashed rgba(255,255,255,.25)}
+    .contact .row a:hover{border-bottom-color: rgba(122,162,255,.7)}
+
+    /* Footer */
     footer{
-      margin-top:32px;
+      margin-top:34px;
       padding-top:18px;
       border-top:1px solid var(--line);
       display:flex;
@@ -109,153 +271,335 @@
       color:var(--muted);
       font-size:13px;
     }
-    @media (max-width: 920px){
+
+    /* Icons (inline SVG style) */
+    .ico{width:16px; height:16px; opacity:.9}
+
+    /* Motion */
+    @media (prefers-reduced-motion:no-preference){
+      .card{animation: pop .35s ease both}
+      .card:nth-child(2){animation-delay:.06s}
+      .card:nth-child(3){animation-delay:.10s}
+      @keyframes pop{
+        from{transform: translateY(6px); opacity:0}
+        to{transform: translateY(0); opacity:1}
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
       .hero{grid-template-columns: 1fr}
-      .grid{grid-template-columns: 1fr}
+      .about{grid-template-columns: 1fr}
+      .grid3{grid-template-columns: 1fr}
       .projects{grid-template-columns: 1fr}
-      h1{font-size:36px}
+      h1{font-size:34px}
     }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="wrap" id="top">
     <header>
-      <div class="brand">
+      <div class="brand" aria-label="Mahvelati Studio home">
         <div class="logo" aria-hidden="true"></div>
         <div>
-          <div style="font-weight:700">Mahvelati Studio</div>
-          <div style="color:var(--muted); font-size:13px">Environmental Engineering + Data Science</div>
+          <div class="title">Mahvelati Studio</div>
+          <div class="sub">Environmental Engineering · Operational SciML · Deployable Systems</div>
         </div>
       </div>
-      <nav>
+
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
         <a href="#focus">Focus</a>
         <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
-    <div class="hero">
-      <div class="card hero-left">
-        <div class="kicker">Applied Research & Platforms</div>
-        <h1>Build credible, deployable science.</h1>
-        <p class="tagline">
-          I combine <b>AI</b>, <b>industrial engineering</b>, and <b>environmental engineering</b> to deliver
-          research-grade models and practical digital platforms.
-        </p>
+    <main id="main">
+      <!-- HERO -->
+      <div class="hero">
+        <div class="card glass hero-left">
+          <div class="kicker">Applied Research · Monitoring · Resilience</div>
+          <h1>Operational AI for resilient water & low-carbon infrastructure.</h1>
 
-        <div class="pills">
-          <div class="pill">Time-series forecasting</div>
-          <div class="pill">Anomaly detection</div>
-          <div class="pill">Resilience metrics</div>
-          <div class="pill">Data ontology</div>
-          <div class="pill">Digital twin (LCA/TEA-ready)</div>
+          <p class="tagline">
+            I build <strong>law-constrained, deployment-ready</strong> models for wastewater treatment plants:
+            forecasting, anomaly detection, and climate-stress resilience — bridging <strong>process engineering</strong>,
+            <strong>microbial systems</strong>, and <strong>Scientific Machine Learning</strong>.
+          </p>
+
+          <div class="pills" aria-label="Core capabilities">
+            <div class="pill strong">Forecasting (multi-horizon)</div>
+            <div class="pill strong">Anomaly & fault detection</div>
+            <div class="pill">Resilience metrics (4R/CRPS)</div>
+            <div class="pill">Process-informed features</div>
+            <div class="pill">Uncertainty & robustness</div>
+            <div class="pill">Digital twin thinking (audit-ready)</div>
+          </div>
+
+          <div class="cta">
+            <a class="btn primary" href="#contact" aria-label="Contact">
+              <!-- mail icon -->
+              <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 6h16v12H4V6z" stroke="currentColor" stroke-width="1.6"/>
+                <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+              Contact
+            </a>
+
+            <!-- Update these links -->
+            <a class="btn" href="https://github.com/Alirezashams-ux" target="_blank" rel="noopener noreferrer">
+              <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.58 2 12.24c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.9-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.55 2.34 1.1 2.91.84.09-.66.35-1.1.63-1.35-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.74 0 0 .84-.28 2.75 1.05A9.2 9.2 0 0 1 12 6.9c.85 0 1.71.12 2.51.35 1.9-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.48.1 2.74.64.72 1.03 1.63 1.03 2.75 0 3.95-2.34 4.82-4.57 5.08.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .26.18.58.69.48A10.2 10.2 0 0 0 22 12.24C22 6.58 17.52 2 12 2z" fill="currentColor"/>
+              </svg>
+              GitHub
+            </a>
+
+            <a class="btn" href="https://scholar.google.com/citations?user=jJAkTD4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+              <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3 1.8 9.2 12 15.4 22.2 9.2 12 3z" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M4.5 11.3V16c0 2.5 3.3 4.5 7.5 4.5s7.5-2 7.5-4.5v-4.7" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+              Scholar
+            </a>
+
+            <a class="btn" href="https://orcid.org/0009-0003-0412-3112" target="_blank" rel="noopener noreferrer">
+              <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M10 16V9.2h1.7V16H10zm4.1 0V9.2h1.4c1.8 0 2.7.9 2.7 3.4s-.9 3.4-2.7 3.4h-1.4z" fill="currentColor"/>
+              </svg>
+              ORCID
+            </a>
+
+            <!-- Optional: add a CV PDF in your repo/site, e.g. /cv.pdf -->
+            <a class="btn" href="/cv.pdf" target="_blank" rel="noopener noreferrer">CV (PDF)</a>
+          </div>
         </div>
 
-        <div class="cta">
-          <a class="btn primary" href="#contact">Contact</a>
-          <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn" href="https://scholar.google.com/citations?user=jJAkTD4AAAAJ&hl=en"_blank" rel="noreferrer">Google Scholar</a>
-          <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-        </div>
+        <aside class="card glass hero-right" aria-label="Quick info">
+          <div class="mini">
+            <h3>Affiliation</h3>
+            <p><strong>PhD Candidate</strong>, Environmental Engineering — University of Ulsan (Ulsan, KR).</p>
+            <div class="small">Focus: WWTP monitoring, resilience, and climate-aware decision support.</div>
+          </div>
+          <div class="mini">
+            <h3>Now</h3>
+            <p>Publishing selected projects with reproducible methods, clean figures, and minimal dependencies.</p>
+            <div class="small">Last updated: <span id="lastUpdated">—</span></div>
+          </div>
+          <div class="mini">
+            <h3>Collaboration</h3>
+            <p>Open to research collaboration and lab-to-field deployment prototypes (water/CCUS).</p>
+            <div class="small">Email: <strong>alireza@mahvelatistudio.com</strong></div>
+          </div>
+        </aside>
       </div>
 
-      <div class="card hero-right">
-        <div class="mini">
-          <h3>Professional email</h3>
-          <p>Use <b>alireza@mahvelatistudio.com</b> for publications & industry.</p>
-        </div>
-        <div class="mini">
-          <h3>Now</h3>
-          <p>Launching the studio site + publishing selected projects with clean demos.</p>
-        </div>
-        <div class="mini">
-          <h3>Available</h3>
-          <p>Research collaboration · consulting · platform prototypes · scientific writing support.</p>
-        </div>
-      </div>
-    </div>
-
-    <section id="focus">
-      <div class="section-title">
-        <h2>Focus</h2>
-        <span>What I build</span>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Environmental AI</h3>
-          <p>Forecasting, anomaly detection, uncertainty, and decision-ready evaluation.</p>
-        </div>
-        <div class="card">
-          <h3>Platforms & Ontology</h3>
-          <p>Palantir-inspired “Foundry-lite” pipelines, schemas, and reproducible data products.</p>
-        </div>
-        <div class="card">
-          <h3>Digital Twin Thinking</h3>
-          <p>From catalyst/interface to reactor/process, with audit-ready cost/energy tracking.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="section-title">
-        <h2>Selected projects</h2>
-        <span>(I’ll keep adding as the site evolves)</span>
-      </div>
-
-      <div class="projects">
-        <div class="card proj">
-          <div class="meta">AI · Water systems</div>
-          <h3>Urban Water Quality Resilience (CRPS framework)</h3>
-          <p>State-space trajectories, 4R metrics from time-series, and scenario-driven evaluation.</p>
+      <!-- ABOUT -->
+      <section id="about" class="about">
+        <div class="card glass">
+          <h2>About</h2>
+          <p>
+            My work sits between <strong>hard-core process engineering</strong> and <strong>reliable AI</strong>.
+            I build models that respect physical/biological constraints, remain robust under plant realities
+            (daily sampling, sensor drift, wet-weather shocks), and translate predictions into decision-relevant signals.
+          </p>
+          <div class="kv" aria-label="Profile details">
+            <div class="k">Name</div><div class="v">Alireza Mahvelati Shamsabadi</div>
+            <div class="k">ORCID</div><div class="v"><a href="https://orcid.org/0009-0003-0412-3112" target="_blank" rel="noopener noreferrer">0009-0003-0412-3112</a></div>
+            <div class="k">Scholar</div><div class="v"><a href="https://scholar.google.com/citations?user=jJAkTD4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar profile</a></div>
+            <div class="k">Email</div><div class="v"><a href="mailto:alireza@mahvelatistudio.com">alireza@mahvelatistudio.com</a></div>
+          </div>
         </div>
 
-        <div class="card proj">
-          <div class="meta">Platform · Data engineering</div>
-          <h3>Foundry-lite MVP</h3>
-          <p>Kafka → ingestion → TimescaleDB telemetry + ontology model, reproducible and demo-ready.</p>
+        <div class="card glass">
+          <h2>Research identity</h2>
+          <p>
+            <strong>Operational SciML for resilient water infrastructure:</strong>
+            forecasting + anomaly detection + resilience metrics, grounded in process memory, kinetics, and
+            climate-regime shifts. In parallel, I contribute to sustainable carbon management (CCUS/ICCU).
+          </p>
+          <div class="pills" style="margin-top:12px">
+            <div class="pill">Activated sludge · nitrification/denitrification</div>
+            <div class="pill">Regime-aware modeling</div>
+            <div class="pill">Leakage-safe evaluation</div>
+            <div class="pill">Uncertainty / OOD detection</div>
+            <div class="pill">Environmental genomics (interest)</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOCUS -->
+      <section id="focus">
+        <div class="section-title">
+          <h2>Focus</h2>
+          <span>What I build (research-grade, deployment-aware)</span>
         </div>
 
-        <div class="card proj">
-          <div class="meta">CO₂ · Optimization</div>
-          <h3>K-CarbonLoop Digital Twin (Track B demo)</h3>
-          <p>CO₂ → CO pathway with uncertainty + Pareto optimization, prepared for proposal workflows.</p>
+        <div class="grid3">
+          <div class="card glass">
+            <h3>WWTP process intelligence</h3>
+            <p>Operational forecasting, anomaly detection, and decision-ready monitoring across multi-contaminant signals and operational states.</p>
+          </div>
+          <div class="card glass">
+            <h3>Resilience under climate stress</h3>
+            <p>Regime-aware evaluation for wet-weather shocks, heatwaves, drought/low-flow, and recovery dynamics with interpretable metrics.</p>
+          </div>
+          <div class="card glass">
+            <h3>Low-carbon systems & CCUS/ICCU</h3>
+            <p>Integrated capture–conversion thinking, audit-ready TEA/LCA hooks, and experimental sorbent work aimed at realistic conditions.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="section-title">
+          <h2>Selected projects</h2>
+          <span>Short, concrete, advisor-readable</span>
         </div>
 
-        <div class="card proj">
-          <div class="meta">ML · Forecasting</div>
-          <h3>Multi-horizon TN forecasting (In Revision)</h3>
-          <p>Robust training, leakage guards, ablations, and clean reporting for reviewers.</p>
+        <div class="projects">
+          <article class="card glass proj">
+            <div class="meta">
+              <span class="chip">AI · Water systems</span>
+              <span class="chip ok">Active</span>
+            </div>
+            <h3>Urban Water Quality Resilience (CRPS framework)</h3>
+            <p>State-space trajectories, 4R metrics from time-series, scenario-driven evaluation, and robustness under climate regimes.</p>
+            <div class="links">
+              <a href="#contact">Ask for demo</a>
+              <a href="/projects/crps" aria-label="Project page (optional)">Project page</a>
+            </div>
+          </article>
+
+          <article class="card glass proj">
+            <div class="meta">
+              <span class="chip">Platform · Data engineering</span>
+              <span class="chip warn">Prototype</span>
+            </div>
+            <h3>Ontology-driven telemetry pipeline (Foundry-lite MVP)</h3>
+            <p>Ingestion → telemetry storage → ontology model → reproducible outputs. Designed for auditability and clean handoffs.</p>
+            <div class="links">
+              <a href="https://github.com/Alirezashams-ux" target="_blank" rel="noopener noreferrer">Repository</a>
+            </div>
+          </article>
+
+          <article class="card glass proj">
+            <div class="meta">
+              <span class="chip">CO₂ · Digital twin</span>
+              <span class="chip warn">Proposal-ready</span>
+            </div>
+            <h3>K-CarbonLoop Digital Twin (Track B demo)</h3>
+            <p>CO₂ → CO pathway with uncertainty and Pareto optimization; structured for TEA/LCA integration and reproducible reporting.</p>
+            <div class="links">
+              <a href="#contact">Request materials</a>
+            </div>
+          </article>
+
+          <article class="card glass proj">
+            <div class="meta">
+              <span class="chip">ML · WWTP</span>
+              <span class="chip warn">In revision</span>
+            </div>
+            <h3>Multi-horizon forecasting + leakage guards</h3>
+            <p>Clean ablations, regime split analysis, and guardrails against proxy leakage; tuned for review-ready reporting.</p>
+            <div class="links">
+              <a href="#publications">Related paper</a>
+            </div>
+          </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contact">
-      <div class="section-title">
-        <h2>Contact</h2>
-        <span>Let’s build something real</span>
-      </div>
+      <!-- PUBLICATIONS -->
+      <section id="publications" class="pubs">
+        <div class="section-title">
+          <h2>Publications</h2>
+          <span>Verified identifiers preferred (DOI/ORCID)</span>
+        </div>
 
-      <div class="card" style="padding:18px">
-        <p style="margin:0; color:var(--muted)">
-          Email:
-          <a href="mailto:alireza@mahvelatistudio.com" style="color:var(--text); font-weight:600">
-            alireza@mahvelatistudio.com
-          </a>
-          <br />
-          Current inbox destination (routing): <span style="color:var(--text)">a.mahvelati1981@gmail.com</span>
-        </p>
-      </div>
-    </section>
+        <div class="card glass">
+          <div class="pub">
+            <p class="t">From Emissions to Assets: Sustainable Technologies for CO₂ Capture, Conversion, and Integrated Strategies</p>
+            <p class="d">
+              International Journal of Molecular Sciences (2026).
+              DOI:
+              <a href="https://doi.org/10.3390/ijms27020847" target="_blank" rel="noopener noreferrer">10.3390/ijms27020847</a>
+            </p>
+            <div class="tags">
+              <span class="chip">CCUS</span><span class="chip">ICCU/ICCC</span><span class="chip">CO₂ conversion</span>
+            </div>
+          </div>
+
+          <div class="pub">
+            <p class="t">Nanoparticle-Augmented Diatom Biosilica as a Sustainable Sorbent for CO₂ Capture (in preparation)</p>
+            <p class="d">
+              Baseline performance, humidity/temperature effects, concentration dependence, and recyclability across cycles.
+            </p>
+            <div class="tags">
+              <span class="chip">Sorbents</span><span class="chip">Humidity robustness</span><span class="chip">Recyclability</span>
+            </div>
+          </div>
+
+          <!-- Optional: add your submitted paper here as "Submitted" (keep minimal, no journal name if not final) -->
+          <!--
+          <div class="pub">
+            <p class="t">Process-Memory Proxy Engineering for Robust Effluent TN/TP Prediction under Daily Sampling Constraints (submitted)</p>
+            <p class="d">Leakage-safe multi-horizon forecasting with regime-aware evaluation.</p>
+            <div class="tags"><span class="chip">WWTP</span><span class="chip">Forecasting</span><span class="chip">SciML</span></div>
+          </div>
+          -->
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact">
+        <div class="section-title">
+          <h2>Contact</h2>
+          <span>Short and direct</span>
+        </div>
+
+        <div class="card glass">
+          <p>
+            Email: <strong><a href="mailto:alireza@mahvelatistudio.com">alireza@mahvelatistudio.com</a></strong><br/>
+            ORCID: <strong><a href="https://orcid.org/0009-0003-0412-3112" target="_blank" rel="noopener noreferrer">0009-0003-0412-3112</a></strong>
+          </p>
+
+          <div class="row" aria-label="Contact links">
+            <a href="https://scholar.google.com/citations?user=jJAkTD4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            <a href="https://github.com/Alirezashams-ux" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <!-- Update LinkedIn if you have it -->
+            <!-- <a href="https://www.linkedin.com/in/your-handle/" target="_blank" rel="noopener noreferrer">LinkedIn</a> -->
+          </div>
+
+          <p style="margin-top:14px; color:var(--muted2); font-size:12px">
+            Note: If you are sending this page to a supervisor, keep the site minimal: affiliation, publications, and 2–4 strongest projects.
+          </p>
+        </div>
+      </section>
+    </main>
 
     <footer>
       <div>© <span id="y"></span> Mahvelati Studio</div>
-      <div>Hosted on Cloudflare Pages · Built from GitHub</div>
+      <div>Built for clarity · <span id="buildNote">—</span></div>
     </footer>
   </div>
 
   <script>
+    // Footer year
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // "Last updated" (client-side; replace with real build stamp if you want)
+    const d = new Date();
+    const fmt = new Intl.DateTimeFormat(undefined, { year: "numeric", month: "short", day: "2-digit" });
+    document.getElementById("lastUpdated").textContent = fmt.format(d);
+
+    // Build note
+    document.getElementById("buildNote").textContent = "Last refreshed " + fmt.format(d);
   </script>
 </body>
 </html>

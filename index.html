@@ -9,7 +9,7 @@
   <meta name="color-scheme" content="dark" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Alireza Mahvelati Shamsabadi | Environmental AI & Resilient Infrastructure" />
+  <meta property="og:title" content="Alireza Mahvelati Shamsabdi | Environmental AI & Resilient Infrastructure" />
   <meta property="og:description" content="Operational SciML for WWTP monitoring, anomaly detection, and resilience under climate stress. Publications, projects, and contact." />
   <meta property="og:type" content="website" />
   <!-- Optional: add a social preview image -->
@@ -82,6 +82,17 @@
       color:var(--text);
       background: rgba(255,255,255,.03);
       transform: translateY(-1px);
+    }
+
+    /* NEW: nav call-to-action link */
+    nav a.nav-cta{
+      color:var(--text);
+      border-color: rgba(122,162,255,.45);
+      background: linear-gradient(135deg, rgba(122,162,255,.20), rgba(124,255,199,.08));
+    }
+    nav a.nav-cta:hover{
+      border-color: rgba(122,162,255,.70);
+      background: linear-gradient(135deg, rgba(122,162,255,.28), rgba(124,255,199,.12));
     }
 
     /* Cards */
@@ -311,17 +322,17 @@
       </div>
 
       <nav aria-label="Primary">
-  <a href="#about">About</a>
-  <a href="#focus">Focus</a>
-  <a href="#projects">Projects</a>
-  <a href="#publications">Publications</a>
-  <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+        <a href="#focus">Focus</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
 
-  <a href="https://k-netzero-compass.onrender.com" target="_blank" rel="noopener noreferrer">
-    K-NetZero Compass
-  </a>
-</nav>
-
+        <!-- NEW: highlighted external link tab -->
+        <a class="nav-cta" href="https://k-netzero-compass.onrender.com" target="_blank" rel="noopener noreferrer">
+          K-NetZero Compass
+        </a>
+      </nav>
     </header>
 
     <main id="main">
@@ -463,89 +474,82 @@
 
       <!-- PROJECTS -->
       <section id="projects">
-  <div class="section-title">
-    <h2>Selected projects</h2>
-    <span>BLESS-aligned (ENWT · N removal · biogas · AI/genomics-ready)</span>
-  </div>
+        <div class="section-title">
+          <h2>Selected projects</h2>
+          <span>BLESS-aligned (ENWT · N removal · biogas · AI/genomics-ready)</span>
+        </div>
 
-  <div class="projects">
+        <div class="projects">
+          <article class="card glass proj">
+            <div class="meta">
+              <span class="chip">ENWT · Novel N removal</span>
+              <span class="chip ok">Active</span>
+              <span class="chip">Forecasting + anomaly</span>
+            </div>
+            <h3>Operational SciML for WWTP water-quality resilience under climate stress</h3>
+            <p>
+              Multi-contaminant forecasting and anomaly detection for real plant conditions:
+              daily sampling constraints, wet-weather shocks, regime shifts, and sensor drift.
+              Outputs are decision-ready (risk-of-violation, early warnings, recovery metrics).
+            </p>
+            <div class="links">
+              <a href="#contact">Request 1-page summary</a>
+              <a href="#publications">Related work</a>
+            </div>
+          </article>
 
-    <!-- 1) ENWT / Novel N removal + AI (top priority) -->
-    <article class="card glass proj">
-      <div class="meta">
-        <span class="chip">ENWT · Novel N removal</span>
-        <span class="chip ok">Active</span>
-        <span class="chip">Forecasting + anomaly</span>
-      </div>
-      <h3>Operational SciML for WWTP water-quality resilience under climate stress</h3>
-      <p>
-        Multi-contaminant forecasting and anomaly detection for real plant conditions:
-        daily sampling constraints, wet-weather shocks, regime shifts, and sensor drift.
-        Outputs are decision-ready (risk-of-violation, early warnings, recovery metrics).
-      </p>
-      <div class="links">
-        <a href="#contact">Request 1-page summary</a>
-        <a href="#publications">Related work</a>
-      </div>
-    </article>
+          <article class="card glass proj">
+            <div class="meta">
+              <span class="chip">Environmental biotechnology</span>
+              <span class="chip warn">In build</span>
+              <span class="chip">Genomics-ready</span>
+            </div>
+            <h3>Pathway-aware monitoring: linking process states to microbial function signals</h3>
+            <p>
+              A framework to connect operational trajectories (DO/ORP, loading, salinity, temperature, wet-weather memory)
+              to microbial pathway indicators (e.g., nitrification/denitrification/Anammox activity proxies),
+              designed to integrate metagenomic/16S features as “biological sensors.”
+            </p>
+            <div class="links">
+              <a href="#contact">Discuss BLESS integration</a>
+            </div>
+          </article>
 
-    <!-- 2) Microbial / Genomics-ready monitoring (BLESS differentiator) -->
-    <article class="card glass proj">
-      <div class="meta">
-        <span class="chip">Environmental biotechnology</span>
-        <span class="chip warn">In build</span>
-        <span class="chip">Genomics-ready</span>
-      </div>
-      <h3>Pathway-aware monitoring: linking process states to microbial function signals</h3>
-      <p>
-        A framework to connect operational trajectories (DO/ORP, loading, salinity, temperature, wet-weather memory)
-        to microbial pathway indicators (e.g., nitrification/denitrification/Anammox activity proxies),
-        designed to integrate metagenomic/16S features as “biological sensors.”
-      </p>
-      <div class="links">
-        <a href="#contact">Discuss BLESS integration</a>
-      </div>
-    </article>
+          <article class="card glass proj">
+            <div class="meta">
+              <span class="chip">Biogas · Anaerobic digestion</span>
+              <span class="chip warn">Proposal-ready</span>
+              <span class="chip">Process modeling</span>
+            </div>
+            <h3>AD/biogas process intelligence for stability, VFA risk, and energy recovery</h3>
+            <p>
+              Predictive monitoring for AD stability (VFA/alkalinity/pH dynamics),
+              early warnings for upsets, and controllable levers for energy-positive operation.
+              Built to be compatible with lab-scale reactor datasets and BLESS workflows.
+            </p>
+            <div class="links">
+              <a href="#contact">Request draft plan</a>
+            </div>
+          </article>
 
-    <!-- 3) Biogas / Anaerobic digestion + modeling (BLESS pillar) -->
-    <article class="card glass proj">
-      <div class="meta">
-        <span class="chip">Biogas · Anaerobic digestion</span>
-        <span class="chip warn">Proposal-ready</span>
-        <span class="chip">Process modeling</span>
-      </div>
-      <h3>AD/biogas process intelligence for stability, VFA risk, and energy recovery</h3>
-      <p>
-        Predictive monitoring for AD stability (VFA/alkalinity/pH dynamics),
-        early warnings for upsets, and controllable levers for energy-positive operation.
-        Built to be compatible with lab-scale reactor datasets and BLESS workflows.
-      </p>
-      <div class="links">
-        <a href="#contact">Request draft plan</a>
-      </div>
-    </article>
-
-    <!-- 4) Carbon redirection / CCUS synergy (keep, but not “main”) -->
-    <article class="card glass proj">
-      <div class="meta">
-        <span class="chip">Carbon capture / CCUS</span>
-        <span class="chip ok">Published</span>
-        <span class="chip">ICCU/ICCC</span>
-      </div>
-      <h3>Integrated CO₂ capture–conversion (ICCU): review + experimental sorbent work</h3>
-      <p>
-        Published review on sustainable CO₂ capture, conversion, and integrated strategies.
-        Experimental work in preparation on nanoparticle-augmented diatom biosilica sorbents:
-        humidity/temperature robustness and recyclability across cycles.
-      </p>
-      <div class="links">
-        <a href="https://doi.org/10.3390/ijms27020847" target="_blank" rel="noopener noreferrer">DOI</a>
-      </div>
-    </article>
-
-  </div>
-</section>
-
+          <article class="card glass proj">
+            <div class="meta">
+              <span class="chip">Carbon capture / CCUS</span>
+              <span class="chip ok">Published</span>
+              <span class="chip">ICCU/ICCC</span>
+            </div>
+            <h3>Integrated CO₂ capture–conversion (ICCU): review + experimental sorbent work</h3>
+            <p>
+              Published review on sustainable CO₂ capture, conversion, and integrated strategies.
+              Experimental work in preparation on nanoparticle-augmented diatom biosilica sorbents:
+              humidity/temperature robustness and recyclability across cycles.
+            </p>
+            <div class="links">
+              <a href="https://doi.org/10.3390/ijms27020847" target="_blank" rel="noopener noreferrer">DOI</a>
+            </div>
+          </article>
+        </div>
+      </section>
 
       <!-- PUBLICATIONS -->
       <section id="publications" class="pubs">
@@ -576,15 +580,6 @@
               <span class="chip">Sorbents</span><span class="chip">Humidity robustness</span><span class="chip">Recyclability</span>
             </div>
           </div>
-
-          <!-- Optional: add your submitted paper here as "Submitted" (keep minimal, no journal name if not final) -->
-          <!--
-          <div class="pub">
-            <p class="t">Process-Memory Proxy Engineering for Robust Effluent TN/TP Prediction under Daily Sampling Constraints (submitted)</p>
-            <p class="d">Leakage-safe multi-horizon forecasting with regime-aware evaluation.</p>
-            <div class="tags"><span class="chip">WWTP</span><span class="chip">Forecasting</span><span class="chip">SciML</span></div>
-          </div>
-          -->
         </div>
       </section>
 
@@ -604,8 +599,6 @@
           <div class="row" aria-label="Contact links">
             <a href="https://scholar.google.com/citations?user=jJAkTD4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
             <a href="https://github.com/Alirezashams-ux" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <!-- Update LinkedIn if you have it -->
-            <!-- <a href="https://www.linkedin.com/in/your-handle/" target="_blank" rel="noopener noreferrer">LinkedIn</a> -->
           </div>
 
           <p style="margin-top:14px; color:var(--muted2); font-size:12px">

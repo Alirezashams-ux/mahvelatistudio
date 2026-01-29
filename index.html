@@ -8,11 +8,13 @@
   <meta name="theme-color" content="#0b0f1a" />
   <meta name="color-scheme" content="dark" />
 
+  <!-- Optional: if you want a manual build stamp instead of 'today' -->
+  <meta name="site-build" content="2026-01-29" />
+
   <!-- Open Graph -->
-  <meta property="og:title" content="Alireza Mahvelati Shamsabdi | Environmental AI & Resilient Infrastructure" />
-  <meta property="og:description" content="Operational SciML for WWTP monitoring, anomaly detection, and resilience under climate stress. Publications, projects, and contact." />
+  <meta property="og:title" content="Alireza Mahvelati Shamsabadi | Environmental AI & Resilient Infrastructure" />
+  <meta property="og:description" content="Operational SciML for WWTP monitoring, anomaly detection, and resilience under climate stress. Publications, projects, demos, and contact." />
   <meta property="og:type" content="website" />
-  <!-- Optional: add a social preview image -->
   <!-- <meta property="og:image" content="https://mahvelatistudio.com/og.png" /> -->
 
   <style>
@@ -30,6 +32,8 @@
       --radius:18px;
       --radius2:22px;
       --max:1100px;
+
+      --navh: 74px;
     }
 
     *{box-sizing:border-box}
@@ -47,35 +51,52 @@
     }
 
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:34px 18px 60px}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 60px}
     .skip{
       position:absolute; left:-999px; top:10px; background:rgba(255,255,255,.08);
       border:1px solid var(--line); padding:10px 12px; border-radius:12px;
     }
     .skip:focus{left:18px; z-index:9999}
 
+    /* ===== Header / Nav (sticky, active-link, mobile menu) ===== */
     header{
-      display:flex; justify-content:space-between; align-items:center; gap:14px;
-      padding:10px 0 26px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 14px 0 12px;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(180deg, rgba(11,15,26,.82), rgba(11,15,26,.35));
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
 
-    .brand{display:flex; align-items:center; gap:12px; min-width:260px}
+    .headbar{
+      display:flex; justify-content:space-between; align-items:center; gap:14px;
+      max-width:var(--max);
+      margin: 0 auto;
+      padding: 0 18px;
+      height: var(--navh);
+    }
+
+    .brand{display:flex; align-items:center; gap:12px; min-width:240px}
     .logo{
       width:38px; height:38px; border-radius:14px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       box-shadow: 0 12px 28px rgba(122,162,255,.25);
       flex:0 0 auto;
     }
-    .brand .title{font-weight:760; letter-spacing:.2px}
+    .brand .title{font-weight:780; letter-spacing:.2px}
     .brand .sub{color:var(--muted); font-size:13px}
 
-    nav{display:flex; gap:10px; flex-wrap:wrap}
+    .navwrap{display:flex; align-items:center; gap:10px}
+    nav{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+
     nav a{
       padding:8px 10px;
       border-radius:12px;
       color:var(--muted);
       border:1px solid transparent;
       transition: transform .15s ease, border-color .15s ease, color .15s ease, background .15s ease;
+      white-space:nowrap;
     }
     nav a:hover{
       border-color:var(--line);
@@ -84,7 +105,14 @@
       transform: translateY(-1px);
     }
 
-    /* NEW: nav call-to-action link */
+    /* Active section link */
+    nav a.is-active{
+      color: var(--text);
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.035);
+    }
+
+    /* CTA link in nav */
     nav a.nav-cta{
       color:var(--text);
       border-color: rgba(122,162,255,.45);
@@ -95,7 +123,34 @@
       background: linear-gradient(135deg, rgba(122,162,255,.28), rgba(124,255,199,.12));
     }
 
-    /* Cards */
+    /* Mobile nav toggle */
+    .nav-toggle{
+      display:none;
+      align-items:center; justify-content:center;
+      width:42px; height:42px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      cursor:pointer;
+    }
+    .nav-toggle:hover{ border-color: rgba(255,255,255,.18); transform: translateY(-1px); }
+
+    .mobile-panel{
+      display:none;
+      max-width:var(--max);
+      margin: 0 auto;
+      padding: 0 18px 14px;
+    }
+    .mobile-panel.open{ display:block; }
+    .mobile-panel nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      padding: 8px 0 0;
+    }
+
+    /* ===== Cards / Glass ===== */
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
       border:1px solid var(--line);
@@ -107,12 +162,16 @@
       backdrop-filter: blur(10px);
     }
 
-    /* Hero */
+    /* ===== Layout spacing (account for sticky nav when jumping to anchors) ===== */
+    section{ scroll-margin-top: calc(var(--navh) + 22px); }
+
+    /* ===== Hero ===== */
     .hero{
       display:grid;
       grid-template-columns: 1.25fr .75fr;
       gap:18px;
       align-items:stretch;
+      padding-top: 18px;
     }
     .hero-left{padding:26px}
     .kicker{
@@ -138,9 +197,9 @@
     }
     .tagline{
       color:var(--muted);
-      margin:0 0 16px;
+      margin:0 0 14px;
       font-size:16px;
-      max-width:68ch;
+      max-width:72ch;
     }
 
     .pills{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
@@ -174,6 +233,9 @@
       border-color: rgba(122,162,255,.45);
       background: linear-gradient(135deg, rgba(122,162,255,.35), rgba(124,255,199,.16));
     }
+    .btn.ghost{
+      background: rgba(255,255,255,.02);
+    }
 
     .hero-right{padding:18px; display:flex; flex-direction:column; gap:12px}
     .mini{
@@ -186,7 +248,32 @@
     .mini p{margin:0; color:var(--muted); font-size:13px}
     .mini .small{color:var(--muted2); font-size:12px; margin-top:8px}
 
-    /* About row */
+    /* Counterintuitive block */
+    .principles{
+      margin-top: 14px;
+      padding: 14px 14px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(122,162,255,.08), rgba(255,255,255,.02));
+    }
+    .principles .t{
+      font-weight: 750;
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      margin-bottom: 8px;
+    }
+    .principles ul{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .principles li{ margin: 6px 0; }
+    .principles strong{ color: var(--text); }
+
+    /* ===== About row ===== */
     .about{
       margin-top:16px;
       display:grid;
@@ -204,7 +291,7 @@
     .kv a{border-bottom:1px dashed rgba(255,255,255,.25)}
     .kv a:hover{border-bottom-color: rgba(124,255,199,.6)}
 
-    /* Sections */
+    /* ===== Sections ===== */
     section{margin-top:28px}
     .section-title{
       display:flex; align-items:end; justify-content:space-between;
@@ -222,7 +309,21 @@
     .grid3 h3{margin:0 0 8px; font-size:16px}
     .grid3 p{margin:0; color:var(--muted); font-size:14px}
 
-    /* Projects */
+    /* ===== Demos ===== */
+    .demo-grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:14px;
+    }
+    .demo{
+      padding:18px;
+    }
+    .demo h3{margin:0 0 8px; font-size:16px}
+    .demo p{margin:0; color:var(--muted); font-size:14px}
+    .demo .meta{margin-top:10px}
+    .demo .actions{margin-top:14px; display:flex; gap:10px; flex-wrap:wrap}
+
+    /* ===== Projects (filter tabs) ===== */
     .projects{
       display:grid;
       grid-template-columns: repeat(2, 1fr);
@@ -246,23 +347,52 @@
     .proj h3{margin:0 0 8px; font-size:16px}
     .proj p{margin:0; color:var(--muted); font-size:14px}
     .proj .links{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap}
-    .proj .links a{color:var(--text); font-weight:600; font-size:13px; border-bottom:1px dashed rgba(255,255,255,.25)}
+    .proj .links a{color:var(--text); font-weight:650; font-size:13px; border-bottom:1px dashed rgba(255,255,255,.25)}
     .proj .links a:hover{border-bottom-color: rgba(122,162,255,.7)}
 
-    /* Publications */
+    .filters{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin: 8px 0 14px;
+      align-items:center;
+    }
+    .filter-btn{
+      padding:9px 11px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      color: var(--muted);
+      cursor:pointer;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease, color .15s ease;
+      font-size:13px;
+    }
+    .filter-btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.18);
+      color: var(--text);
+      background: rgba(255,255,255,.03);
+    }
+    .filter-btn[aria-selected="true"]{
+      color: var(--text);
+      border-color: rgba(122,162,255,.55);
+      background: linear-gradient(135deg, rgba(122,162,255,.18), rgba(124,255,199,.08));
+    }
+
+    /* ===== Publications ===== */
     .pubs .card{padding:18px}
     .pub{
       padding:14px 0;
       border-top:1px solid rgba(255,255,255,.08);
     }
     .pub:first-child{border-top:none; padding-top:0}
-    .pub .t{font-weight:700; margin:0 0 6px}
+    .pub .t{font-weight:740; margin:0 0 6px}
     .pub .d{color:var(--muted); margin:0; font-size:14px}
     .pub .d a{border-bottom:1px dashed rgba(255,255,255,.25)}
     .pub .d a:hover{border-bottom-color: rgba(124,255,199,.6)}
     .pub .tags{margin-top:8px; display:flex; gap:8px; flex-wrap:wrap}
 
-    /* Contact */
+    /* ===== Contact ===== */
     .contact .card{padding:18px}
     .contact p{margin:0; color:var(--muted); font-size:14px}
     .contact strong{color:var(--text)}
@@ -270,7 +400,7 @@
     .contact .row a{border-bottom:1px dashed rgba(255,255,255,.25)}
     .contact .row a:hover{border-bottom-color: rgba(122,162,255,.7)}
 
-    /* Footer */
+    /* ===== Footer ===== */
     footer{
       margin-top:34px;
       padding-top:18px;
@@ -303,7 +433,13 @@
       .about{grid-template-columns: 1fr}
       .grid3{grid-template-columns: 1fr}
       .projects{grid-template-columns: 1fr}
+      .demo-grid{grid-template-columns: 1fr}
       h1{font-size:34px}
+    }
+    @media (max-width: 860px){
+      /* Use hamburger menu */
+      .navwrap nav{display:none;}
+      .nav-toggle{display:inline-flex;}
     }
   </style>
 </head>
@@ -311,30 +447,49 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <div class="wrap" id="top">
-    <header>
-      <div class="brand" aria-label="Mahvelati Studio home">
+  <!-- Sticky header -->
+  <header>
+    <div class="headbar">
+      <a class="brand" href="#top" aria-label="Mahvelati Studio home">
         <div class="logo" aria-hidden="true"></div>
         <div>
           <div class="title">Mahvelati Studio</div>
           <div class="sub">Environmental Engineering · Operational SciML · Deployable Systems</div>
         </div>
+      </a>
+
+      <div class="navwrap">
+        <nav aria-label="Primary" id="primaryNav">
+          <a href="#about" data-nav="about">About</a>
+          <a href="#focus" data-nav="focus">Focus</a>
+          <a class="nav-cta" href="#demos" data-nav="demos">Demos</a>
+          <a href="#projects" data-nav="projects">Projects</a>
+          <a href="#publications" data-nav="publications">Publications</a>
+          <a href="#contact" data-nav="contact">Contact</a>
+        </nav>
+
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 7h14M5 12h14M5 17h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
       </div>
+    </div>
 
-      <nav aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#focus">Focus</a>
-        <a href="#projects">Projects</a>
-        <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
-
-        <!-- NEW: highlighted external link tab -->
-        <a class="nav-cta" href="https://k-netzero-compass.onrender.com" target="_blank" rel="noopener noreferrer">
-          K-NetZero Compass
-        </a>
+    <!-- Mobile nav panel -->
+    <div class="mobile-panel" id="mobilePanel">
+      <nav aria-label="Mobile primary">
+        <a href="#about" data-nav="about">About</a>
+        <a href="#focus" data-nav="focus">Focus</a>
+        <a class="nav-cta" href="#demos" data-nav="demos">Demos</a>
+        <a href="#projects" data-nav="projects">Projects</a>
+        <a href="#publications" data-nav="publications">Publications</a>
+        <a href="#contact" data-nav="contact">Contact</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
+  <div class="wrap" id="top">
     <main id="main">
       <!-- HERO -->
       <div class="hero">
@@ -348,6 +503,15 @@
             <strong>microbial systems</strong>, and <strong>Scientific Machine Learning</strong>.
           </p>
 
+          <div class="principles" aria-label="Counterintuitive principles">
+            <div class="t">Counterintuitive principles</div>
+            <ul>
+              <li><strong>Auditability beats hero metrics:</strong> decision-ready evidence over peak numbers.</li>
+              <li><strong>Constraints are a feature:</strong> daily lab sampling becomes a modeling advantage, not a weakness.</li>
+              <li><strong>Deployment is part of research:</strong> if it can’t run reliably, it doesn’t count.</li>
+            </ul>
+          </div>
+
           <div class="pills" aria-label="Core capabilities">
             <div class="pill strong">Forecasting (multi-horizon)</div>
             <div class="pill strong">Anomaly & fault detection</div>
@@ -359,7 +523,6 @@
 
           <div class="cta">
             <a class="btn primary" href="#contact" aria-label="Contact">
-              <!-- mail icon -->
               <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M4 6h16v12H4V6z" stroke="currentColor" stroke-width="1.6"/>
                 <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6"/>
@@ -367,7 +530,6 @@
               Contact
             </a>
 
-            <!-- Update these links -->
             <a class="btn" href="https://github.com/Alirezashams-ux" target="_blank" rel="noopener noreferrer">
               <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12 2C6.48 2 2 6.58 2 12.24c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.9-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.55 2.34 1.1 2.91.84.09-.66.35-1.1.63-1.35-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.74 0 0 .84-.28 2.75 1.05A9.2 9.2 0 0 1 12 6.9c.85 0 1.71.12 2.51.35 1.9-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.48.1 2.74.64.72 1.03 1.63 1.03 2.75 0 3.95-2.34 4.82-4.57 5.08.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .26.18.58.69.48A10.2 10.2 0 0 0 22 12.24C22 6.58 17.52 2 12 2z" fill="currentColor"/>
@@ -391,8 +553,7 @@
               ORCID
             </a>
 
-            <!-- Optional: add a CV PDF in your repo/site, e.g. /cv.pdf -->
-            <a class="btn" href="/cv.pdf" target="_blank" rel="noopener noreferrer">CV (PDF)</a>
+            <a class="btn ghost" href="/cv.pdf" target="_blank" rel="noopener noreferrer">CV (PDF)</a>
           </div>
         </div>
 
@@ -472,17 +633,74 @@
         </div>
       </section>
 
+      <!-- DEMOS -->
+      <section id="demos">
+        <div class="section-title">
+          <h2>Demos</h2>
+          <span>Deployed prototypes (decision-ready, not slideware)</span>
+        </div>
+
+        <div class="demo-grid">
+          <article class="card glass demo">
+            <div class="meta">
+              <span class="chip ok">Live</span>
+              <span class="chip">Streamlit</span>
+              <span class="chip">Render</span>
+              <span class="chip">Net-zero decision support</span>
+            </div>
+            <h3>K-NetZero Compass</h3>
+            <p>
+              A deployable decision-support demo for net-zero planning. Built to be transparent, auditable,
+              and extendable (future LCA/TEA hooks and uncertainty-aware comparisons).
+              <span style="color:var(--muted2)">(Free tier may sleep/wake.)</span>
+            </p>
+            <div class="actions">
+              <a class="btn primary" href="https://k-netzero-compass.onrender.com" target="_blank" rel="noopener noreferrer">
+                Open app
+              </a>
+              <a class="btn" href="#contact">Request demo extension</a>
+            </div>
+          </article>
+
+          <article class="card glass demo">
+            <div class="meta">
+              <span class="chip warn">Coming</span>
+              <span class="chip">Audit-ready</span>
+              <span class="chip">Digital twin</span>
+            </div>
+            <h3>Next demos (in build)</h3>
+            <p>
+              A set of small, deployable prototypes: anomaly monitoring dashboards, resilience scoring (4R/CRPS),
+              and carbon-accounting workflows designed for reproducibility and real adoption.
+            </p>
+            <div class="actions">
+              <a class="btn" href="#projects">See project pipeline</a>
+              <a class="btn" href="#contact">Collaborate</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <!-- PROJECTS -->
       <section id="projects">
         <div class="section-title">
-          <h2>Selected projects</h2>
-          <span>BLESS-aligned (ENWT · N removal · biogas · AI/genomics-ready)</span>
+          <h2>Projects</h2>
+          <span>Filter by category (apps · AI · process · CCUS)</span>
         </div>
 
-        <div class="projects">
-          <article class="card glass proj">
+        <!-- Dynamic filter tabs -->
+        <div class="filters" role="tablist" aria-label="Project filters">
+          <button class="filter-btn" role="tab" aria-selected="true" data-filter="all">All</button>
+          <button class="filter-btn" role="tab" aria-selected="false" data-filter="apps">Apps & demos</button>
+          <button class="filter-btn" role="tab" aria-selected="false" data-filter="ai">AI systems</button>
+          <button class="filter-btn" role="tab" aria-selected="false" data-filter="process">Process engineering</button>
+          <button class="filter-btn" role="tab" aria-selected="false" data-filter="ccus">CCUS / ICCU</button>
+        </div>
+
+        <div class="projects" id="projectGrid">
+          <article class="card glass proj" data-tags="ai,process">
             <div class="meta">
-              <span class="chip">ENWT · Novel N removal</span>
+              <span class="chip">WWTP resilience</span>
               <span class="chip ok">Active</span>
               <span class="chip">Forecasting + anomaly</span>
             </div>
@@ -498,7 +716,7 @@
             </div>
           </article>
 
-          <article class="card glass proj">
+          <article class="card glass proj" data-tags="ai,process">
             <div class="meta">
               <span class="chip">Environmental biotechnology</span>
               <span class="chip warn">In build</span>
@@ -507,15 +725,15 @@
             <h3>Pathway-aware monitoring: linking process states to microbial function signals</h3>
             <p>
               A framework to connect operational trajectories (DO/ORP, loading, salinity, temperature, wet-weather memory)
-              to microbial pathway indicators (e.g., nitrification/denitrification/Anammox activity proxies),
+              to microbial pathway indicators (nitrification/denitrification/Anammox proxies),
               designed to integrate metagenomic/16S features as “biological sensors.”
             </p>
             <div class="links">
-              <a href="#contact">Discuss BLESS integration</a>
+              <a href="#contact">Discuss integration</a>
             </div>
           </article>
 
-          <article class="card glass proj">
+          <article class="card glass proj" data-tags="process,ai">
             <div class="meta">
               <span class="chip">Biogas · Anaerobic digestion</span>
               <span class="chip warn">Proposal-ready</span>
@@ -525,14 +743,14 @@
             <p>
               Predictive monitoring for AD stability (VFA/alkalinity/pH dynamics),
               early warnings for upsets, and controllable levers for energy-positive operation.
-              Built to be compatible with lab-scale reactor datasets and BLESS workflows.
+              Built to be compatible with lab-scale reactor datasets and biotech workflows.
             </p>
             <div class="links">
               <a href="#contact">Request draft plan</a>
             </div>
           </article>
 
-          <article class="card glass proj">
+          <article class="card glass proj" data-tags="ccus,process">
             <div class="meta">
               <span class="chip">Carbon capture / CCUS</span>
               <span class="chip ok">Published</span>
@@ -546,6 +764,39 @@
             </p>
             <div class="links">
               <a href="https://doi.org/10.3390/ijms27020847" target="_blank" rel="noopener noreferrer">DOI</a>
+            </div>
+          </article>
+
+          <article class="card glass proj" data-tags="apps,ai">
+            <div class="meta">
+              <span class="chip">Deployment</span>
+              <span class="chip ok">Live</span>
+              <span class="chip">Streamlit</span>
+            </div>
+            <h3>K-NetZero Compass (deployed demo)</h3>
+            <p>
+              A deployed prototype for net-zero decision support.
+              Designed as a foundation for uncertainty-aware comparisons and audit-ready reporting.
+            </p>
+            <div class="links">
+              <a href="https://k-netzero-compass.onrender.com" target="_blank" rel="noopener noreferrer">Open app</a>
+              <a href="#demos">Details</a>
+            </div>
+          </article>
+
+          <article class="card glass proj" data-tags="apps,ai">
+            <div class="meta">
+              <span class="chip">Dashboarding</span>
+              <span class="chip warn">Coming</span>
+              <span class="chip">Resilience metrics</span>
+            </div>
+            <h3>4R/CRPS resilience scoring dashboard (prototype)</h3>
+            <p>
+              A decision layer that converts predictions into operational resilience: time-in-safe, headroom, recovery,
+              and actionable intervention signals—built to remain interpretable under stress regimes.
+            </p>
+            <div class="links">
+              <a href="#contact">Discuss build</a>
             </div>
           </article>
         </div>
@@ -602,7 +853,7 @@
           </div>
 
           <p style="margin-top:14px; color:var(--muted2); font-size:12px">
-            Note: If you are sending this page to a supervisor, keep the site minimal: affiliation, publications, and 2–4 strongest projects.
+            Note: For supervisors, a minimal page wins: affiliation, 2–4 strongest projects, and DOI-backed publications.
           </p>
         </div>
       </section>
@@ -618,13 +869,76 @@
     // Footer year
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // "Last updated" (client-side; replace with real build stamp if you want)
-    const d = new Date();
+    // Prefer manual build stamp if present
+    const buildMeta = document.querySelector('meta[name="site-build"]')?.getAttribute("content");
+    const d = buildMeta ? new Date(buildMeta + "T00:00:00") : new Date();
     const fmt = new Intl.DateTimeFormat(undefined, { year: "numeric", month: "short", day: "2-digit" });
     document.getElementById("lastUpdated").textContent = fmt.format(d);
-
-    // Build note
     document.getElementById("buildNote").textContent = "Last refreshed " + fmt.format(d);
+
+    // Mobile menu toggle
+    const toggle = document.getElementById("navToggle");
+    const panel = document.getElementById("mobilePanel");
+    toggle?.addEventListener("click", () => {
+      const open = panel.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(open));
+    });
+
+    // Close mobile panel on link click
+    panel?.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (!a) return;
+      panel.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+
+    // Projects filter (tabs)
+    const filterButtons = Array.from(document.querySelectorAll(".filter-btn"));
+    const cards = Array.from(document.querySelectorAll("#projectGrid .proj"));
+
+    function setFilter(filter){
+      filterButtons.forEach(b => b.setAttribute("aria-selected", String(b.dataset.filter === filter)));
+      cards.forEach(card => {
+        const tags = (card.dataset.tags || "").split(",").map(s => s.trim());
+        const show = (filter === "all") || tags.includes(filter);
+        card.style.display = show ? "" : "none";
+      });
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener("click", () => setFilter(btn.dataset.filter));
+      btn.addEventListener("keydown", (e) => {
+        // Simple keyboard navigation (left/right)
+        if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+        e.preventDefault();
+        const i = filterButtons.indexOf(btn);
+        const next = e.key === "ArrowRight" ? filterButtons[i+1] : filterButtons[i-1];
+        (next || btn).focus();
+      });
+    });
+
+    // Nav active-link highlighting via IntersectionObserver
+    const navLinks = Array.from(document.querySelectorAll('[data-nav]'));
+    const sections = ["about","focus","demos","projects","publications","contact"]
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    const linkById = new Map(navLinks.map(a => [a.dataset.nav, a]));
+
+    const obs = new IntersectionObserver((entries) => {
+      // pick the most visible section
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+
+      navLinks.forEach(a => a.classList.remove("is-active"));
+      const id = visible.target.id;
+      const active = linkById.get(id);
+      if (active) active.classList.add("is-active");
+    }, { rootMargin: "-35% 0px -55% 0px", threshold: [0.15, 0.25, 0.4, 0.6] });
+
+    sections.forEach(s => obs.observe(s));
   </script>
 </body>
 </html>

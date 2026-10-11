@@ -1,0 +1,944 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alireza Mahvelati Shamsabadi | Mahvelati Studio</title>
+  <meta name="description" content="Alireza Mahvelati Shamsabadi — PhD Candidate (Environmental Engineering, University of Ulsan). Operational SciML for WWTP monitoring, resilience, and climate-aware decision support; CCUS/ICCU research and deployable digital twins." />
+  <meta name="theme-color" content="#0b0f1a" />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- Optional: if you want a manual build stamp instead of 'today' -->
+  <meta name="site-build" content="2026-01-29" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Alireza Mahvelati Shamsabadi | Environmental AI & Resilient Infrastructure" />
+  <meta property="og:description" content="Operational SciML for WWTP monitoring, anomaly detection, and resilience under climate stress. Publications, projects, demos, and contact." />
+  <meta property="og:type" content="website" />
+  <!-- <meta property="og:image" content="https://mahvelatistudio.com/og.png" /> -->
+
+  <style>
+    :root{
+      --bg:#0b0f1a;
+      --card:#10182b;
+      --card2:#0f1627;
+      --text:#e7ecff;
+      --muted:#a9b3d6;
+      --muted2:#7f89ad;
+      --line:rgba(255,255,255,.10);
+      --accent:#7aa2ff;
+      --accent2:#7cffc7;
+      --shadow:0 14px 38px rgba(0,0,0,.35);
+      --radius:18px;
+      --radius2:22px;
+      --max:1100px;
+
+      --navh: 74px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1100px 720px at 15% -10%, rgba(122,162,255,.30), transparent 55%),
+        radial-gradient(900px 650px at 90% 0%, rgba(124,255,199,.18), transparent 55%),
+        radial-gradient(800px 500px at 70% 110%, rgba(122,162,255,.12), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 18px 60px}
+    .skip{
+      position:absolute; left:-999px; top:10px; background:rgba(255,255,255,.08);
+      border:1px solid var(--line); padding:10px 12px; border-radius:12px;
+    }
+    .skip:focus{left:18px; z-index:9999}
+
+    /* ===== Header / Nav (sticky, active-link, mobile menu) ===== */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 14px 0 12px;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(180deg, rgba(11,15,26,.82), rgba(11,15,26,.35));
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .headbar{
+      display:flex; justify-content:space-between; align-items:center; gap:14px;
+      max-width:var(--max);
+      margin: 0 auto;
+      padding: 0 18px;
+      height: var(--navh);
+    }
+
+    .brand{display:flex; align-items:center; gap:12px; min-width:240px}
+    .logo{
+      width:38px; height:38px; border-radius:14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 12px 28px rgba(122,162,255,.25);
+      flex:0 0 auto;
+    }
+    .brand .title{font-weight:780; letter-spacing:.2px}
+    .brand .sub{color:var(--muted); font-size:13px}
+
+    .navwrap{display:flex; align-items:center; gap:10px}
+    nav{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+
+    nav a{
+      padding:8px 10px;
+      border-radius:12px;
+      color:var(--muted);
+      border:1px solid transparent;
+      transition: transform .15s ease, border-color .15s ease, color .15s ease, background .15s ease;
+      white-space:nowrap;
+    }
+    nav a:hover{
+      border-color:var(--line);
+      color:var(--text);
+      background: rgba(255,255,255,.03);
+      transform: translateY(-1px);
+    }
+
+    /* Active section link */
+    nav a.is-active{
+      color: var(--text);
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.035);
+    }
+
+    /* CTA link in nav */
+    nav a.nav-cta{
+      color:var(--text);
+      border-color: rgba(122,162,255,.45);
+      background: linear-gradient(135deg, rgba(122,162,255,.20), rgba(124,255,199,.08));
+    }
+    nav a.nav-cta:hover{
+      border-color: rgba(122,162,255,.70);
+      background: linear-gradient(135deg, rgba(122,162,255,.28), rgba(124,255,199,.12));
+    }
+
+    /* Mobile nav toggle */
+    .nav-toggle{
+      display:none;
+      align-items:center; justify-content:center;
+      width:42px; height:42px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      cursor:pointer;
+    }
+    .nav-toggle:hover{ border-color: rgba(255,255,255,.18); transform: translateY(-1px); }
+
+    .mobile-panel{
+      display:none;
+      max-width:var(--max);
+      margin: 0 auto;
+      padding: 0 18px 14px;
+    }
+    .mobile-panel.open{ display:block; }
+    .mobile-panel nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      padding: 8px 0 0;
+    }
+
+    /* ===== Cards / Glass ===== */
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:var(--radius2);
+      box-shadow: var(--shadow);
+    }
+    .glass{
+      background: linear-gradient(180deg, rgba(16,24,43,.72), rgba(16,24,43,.35));
+      backdrop-filter: blur(10px);
+    }
+
+    /* ===== Layout spacing (account for sticky nav when jumping to anchors) ===== */
+    section{ scroll-margin-top: calc(var(--navh) + 22px); }
+
+    /* ===== Hero ===== */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      align-items:stretch;
+      padding-top: 18px;
+    }
+    .hero-left{padding:26px}
+    .kicker{
+      color:var(--muted2);
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-size:12px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .kicker:before{
+      content:"";
+      width:12px; height:12px; border-radius:4px;
+      background: linear-gradient(135deg, rgba(122,162,255,.9), rgba(124,255,199,.75));
+      box-shadow: 0 0 0 3px rgba(122,162,255,.15);
+    }
+    h1{
+      margin:10px 0 10px;
+      font-size:40px;
+      line-height:1.1;
+      letter-spacing:-.6px;
+    }
+    .tagline{
+      color:var(--muted);
+      margin:0 0 14px;
+      font-size:16px;
+      max-width:72ch;
+    }
+
+    .pills{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .pill{
+      font-size:13px;
+      color:var(--text);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      white-space:nowrap;
+    }
+    .pill.strong{
+      border-color: rgba(122,162,255,.45);
+      background: linear-gradient(135deg, rgba(122,162,255,.22), rgba(124,255,199,.10));
+    }
+
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:11px 13px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.18)}
+    .btn.primary{
+      border-color: rgba(122,162,255,.45);
+      background: linear-gradient(135deg, rgba(122,162,255,.35), rgba(124,255,199,.16));
+    }
+    .btn.ghost{
+      background: rgba(255,255,255,.02);
+    }
+
+    .hero-right{padding:18px; display:flex; flex-direction:column; gap:12px}
+    .mini{
+      padding:16px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .mini h3{margin:0 0 6px; font-size:15px}
+    .mini p{margin:0; color:var(--muted); font-size:13px}
+    .mini .small{color:var(--muted2); font-size:12px; margin-top:8px}
+
+    /* Counterintuitive block */
+    .principles{
+      margin-top: 14px;
+      padding: 14px 14px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(122,162,255,.08), rgba(255,255,255,.02));
+    }
+    .principles .t{
+      font-weight: 750;
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      margin-bottom: 8px;
+    }
+    .principles ul{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .principles li{ margin: 6px 0; }
+    .principles strong{ color: var(--text); }
+
+    /* ===== About row ===== */
+    .about{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .about .card{padding:18px}
+    .about h2{margin:0 0 10px; font-size:16px}
+    .about p{margin:0; color:var(--muted); font-size:14px}
+
+    .kv{display:grid; grid-template-columns: 120px 1fr; gap:8px 12px; margin-top:10px}
+    .kv div{font-size:13px}
+    .kv .k{color:var(--muted2)}
+    .kv .v{color:var(--text)}
+    .kv a{border-bottom:1px dashed rgba(255,255,255,.25)}
+    .kv a:hover{border-bottom-color: rgba(124,255,199,.6)}
+
+    /* ===== Sections ===== */
+    section{margin-top:28px}
+    .section-title{
+      display:flex; align-items:end; justify-content:space-between;
+      gap:10px; margin:0 0 10px;
+    }
+    .section-title h2{margin:0; font-size:18px}
+    .section-title span{color:var(--muted); font-size:13px}
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .grid3 .card{padding:18px}
+    .grid3 h3{margin:0 0 8px; font-size:16px}
+    .grid3 p{margin:0; color:var(--muted); font-size:14px}
+
+    /* ===== Demos ===== */
+    .demo-grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:14px;
+    }
+    .demo{
+      padding:18px;
+    }
+    .demo h3{margin:0 0 8px; font-size:16px}
+    .demo p{margin:0; color:var(--muted); font-size:14px}
+    .demo .meta{margin-top:10px}
+    .demo .actions{margin-top:14px; display:flex; gap:10px; flex-wrap:wrap}
+
+    /* ===== Projects (filter tabs) ===== */
+    .projects{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:14px;
+    }
+    .proj{padding:18px}
+    .meta{
+      display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+      color:var(--muted2);
+      font-size:12px;
+      margin-bottom:8px;
+    }
+    .chip{
+      padding:4px 8px; border-radius:999px; border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:12px;
+    }
+    .chip.ok{border-color: rgba(124,255,199,.35); color: rgba(124,255,199,.95)}
+    .chip.warn{border-color: rgba(122,162,255,.35); color: rgba(122,162,255,.95)}
+    .proj h3{margin:0 0 8px; font-size:16px}
+    .proj p{margin:0; color:var(--muted); font-size:14px}
+    .proj .links{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap}
+    .proj .links a{color:var(--text); font-weight:650; font-size:13px; border-bottom:1px dashed rgba(255,255,255,.25)}
+    .proj .links a:hover{border-bottom-color: rgba(122,162,255,.7)}
+
+    .filters{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin: 8px 0 14px;
+      align-items:center;
+    }
+    .filter-btn{
+      padding:9px 11px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      color: var(--muted);
+      cursor:pointer;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease, color .15s ease;
+      font-size:13px;
+    }
+    .filter-btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.18);
+      color: var(--text);
+      background: rgba(255,255,255,.03);
+    }
+    .filter-btn[aria-selected="true"]{
+      color: var(--text);
+      border-color: rgba(122,162,255,.55);
+      background: linear-gradient(135deg, rgba(122,162,255,.18), rgba(124,255,199,.08));
+    }
+
+    /* ===== Publications ===== */
+    .pubs .card{padding:18px}
+    .pub{
+      padding:14px 0;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+    .pub:first-child{border-top:none; padding-top:0}
+    .pub .t{font-weight:740; margin:0 0 6px}
+    .pub .d{color:var(--muted); margin:0; font-size:14px}
+    .pub .d a{border-bottom:1px dashed rgba(255,255,255,.25)}
+    .pub .d a:hover{border-bottom-color: rgba(124,255,199,.6)}
+    .pub .tags{margin-top:8px; display:flex; gap:8px; flex-wrap:wrap}
+
+    /* ===== Contact ===== */
+    .contact .card{padding:18px}
+    .contact p{margin:0; color:var(--muted); font-size:14px}
+    .contact strong{color:var(--text)}
+    .contact .row{display:flex; flex-wrap:wrap; gap:12px; margin-top:12px}
+    .contact .row a{border-bottom:1px dashed rgba(255,255,255,.25)}
+    .contact .row a:hover{border-bottom-color: rgba(122,162,255,.7)}
+
+    /* ===== Footer ===== */
+    footer{
+      margin-top:34px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Icons (inline SVG style) */
+    .ico{width:16px; height:16px; opacity:.9}
+
+    /* Motion */
+    @media (prefers-reduced-motion:no-preference){
+      .card{animation: pop .35s ease both}
+      .card:nth-child(2){animation-delay:.06s}
+      .card:nth-child(3){animation-delay:.10s}
+      @keyframes pop{
+        from{transform: translateY(6px); opacity:0}
+        to{transform: translateY(0); opacity:1}
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero{grid-template-columns: 1fr}
+      .about{grid-template-columns: 1fr}
+      .grid3{grid-template-columns: 1fr}
+      .projects{grid-template-columns: 1fr}
+      .demo-grid{grid-template-columns: 1fr}
+      h1{font-size:34px}
+    }
+    @media (max-width: 860px){
+      /* Use hamburger menu */
+      .navwrap nav{display:none;}
+      .nav-toggle{display:inline-flex;}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Sticky header -->
+  <header>
+    <div class="headbar">
+      <a class="brand" href="#top" aria-label="Mahvelati Studio home">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="title">Mahvelati Studio</div>
+          <div class="sub">Environmental Engineering · Operational SciML · Deployable Systems</div>
+        </div>
+      </a>
+
+      <div class="navwrap">
+        <nav aria-label="Primary" id="primaryNav">
+          <a href="#about" data-nav="about">About</a>
+          <a href="#focus" data-nav="focus">Focus</a>
+          <a class="nav-cta" href="#demos" data-nav="demos">Demos</a>
+          <a href="#projects" data-nav="projects">Projects</a>
+          <a href="#publications" data-nav="publications">Publications</a>
+          <a href="#contact" data-nav="contact">Contact</a>
+        </nav>
+
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 7h14M5 12h14M5 17h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile nav panel -->
+    <div class="mobile-panel" id="mobilePanel">
+      <nav aria-label="Mobile primary">
+        <a href="#about" data-nav="about">About</a>
+        <a href="#focus" data-nav="focus">Focus</a>
+        <a class="nav-cta" href="#demos" data-nav="demos">Demos</a>
+        <a href="#projects" data-nav="projects">Projects</a>
+        <a href="#publications" data-nav="publications">Publications</a>
+        <a href="#contact" data-nav="contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap" id="top">
+    <main id="main">
+      <!-- HERO -->
+      <div class="hero">
+        <div class="card glass hero-left">
+          <div class="kicker">Applied Research · Monitoring · Resilience</div>
+          <h1>Operational AI for resilient water & low-carbon infrastructure.</h1>
+
+          <p class="tagline">
+            I build <strong>law-constrained, deployment-ready</strong> models for wastewater treatment plants:
+            forecasting, anomaly detection, and climate-stress resilience — bridging <strong>process engineering</strong>,
+            <strong>microbial systems</strong>, and <strong>Scientific Machine Learning</strong>.
+          </p>
+
+          <div class="principles" aria-label="Counterintuitive principles">
+            <div class="t">Counterintuitive principles</div>
+            <ul>
+              <li><strong>Auditability beats hero metrics:</strong> decision-ready evidence over peak numbers.</li>
+              <li><strong>Constraints are a feature:</strong> daily lab sampling becomes a modeling advantage, not a weakness.</li>
+              <li><strong>Deployment is part of research:</strong> if it can’t run reliably, it doesn’t count.</li>
+            </ul>
+          </div>
+
+          <div class="pills" aria-label="Core capabilities">
+            <div class="pill strong">Forecasting (multi-horizon)</div>
+            <div class="pill strong">Anomaly & fault detection</div>
+            <div class="pill">Resilience metrics (4R/CRPS)</div>
+            <div class="pill">Process-informed features</div>
+            <div class="pill">Uncertainty & robustness</div>
+            <div class="pill">Digital twin thinking (audit-ready)</div>
+          </div>
+
+          <div class="cta">
+            <a class="btn primary" href="#contact" aria-label="Contact">
+              <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 6h16v12H4V6z" stroke="currentColor" stroke-width="1.6"/>
+                <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+              Contact
+            </a>
+
+            <a class="btn" href="https://github.com/Alirezashams-ux" target="_blank" rel="noopener noreferrer">
+              <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.58 2 12.24c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.9-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.55 2.34 1.1 2.91.84.09-.66.35-1.1.63-1.35-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.74 0 0 .84-.28 2.75 1.05A9.2 9.2 0 0 1 12 6.9c.85 0 1.71.12 2.51.35 1.9-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.48.1 2.74.64.72 1.03 1.63 1.03 2.75 0 3.95-2.34 4.82-4.57 5.08.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .26.18.58.69.48A10.2 10.2 0 0 0 22 12.24C22 6.58 17.52 2 12 2z" fill="currentColor"/>
+              </svg>
+              GitHub
+            </a>
+
+            <a class="btn" href="https://scholar.google.com/citations?user=jJAkTD4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+              <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3 1.8 9.2 12 15.4 22.2 9.2 12 3z" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M4.5 11.3V16c0 2.5 3.3 4.5 7.5 4.5s7.5-2 7.5-4.5v-4.7" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+              Scholar
+            </a>
+
+            <a class="btn" href="https://orcid.org/0009-0003-0412-3112" target="_blank" rel="noopener noreferrer">
+              <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M10 16V9.2h1.7V16H10zm4.1 0V9.2h1.4c1.8 0 2.7.9 2.7 3.4s-.9 3.4-2.7 3.4h-1.4z" fill="currentColor"/>
+              </svg>
+              ORCID
+            </a>
+
+            <a class="btn ghost" href="/cv.pdf" target="_blank" rel="noopener noreferrer">CV (PDF)</a>
+          </div>
+        </div>
+
+        <aside class="card glass hero-right" aria-label="Quick info">
+          <div class="mini">
+            <h3>Affiliation</h3>
+            <p><strong>PhD Candidate</strong>, Environmental Engineering — University of Ulsan (Ulsan, KR).</p>
+            <div class="small">Focus: WWTP monitoring, resilience, and climate-aware decision support.</div>
+          </div>
+          <div class="mini">
+            <h3>Now</h3>
+            <p>Publishing selected projects with reproducible methods, clean figures, and minimal dependencies.</p>
+            <div class="small">Last updated: <span id="lastUpdated">—</span></div>
+          </div>
+          <div class="mini">
+            <h3>Collaboration</h3>
+            <p>Open to research collaboration and lab-to-field deployment prototypes (water/CCUS).</p>
+            <div class="small">Email: <strong>alireza@mahvelatistudio.com</strong></div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- ABOUT -->
+      <section id="about" class="about">
+        <div class="card glass">
+          <h2>About</h2>
+          <p>
+            My work sits between <strong>hard-core process engineering</strong> and <strong>reliable AI</strong>.
+            I build models that respect physical/biological constraints, remain robust under plant realities
+            (daily sampling, sensor drift, wet-weather shocks), and translate predictions into decision-relevant signals.
+          </p>
+          <div class="kv" aria-label="Profile details">
+            <div class="k">Name</div><div class="v">Alireza Mahvelati Shamsabadi</div>
+            <div class="k">ORCID</div><div class="v"><a href="https://orcid.org/0009-0003-0412-3112" target="_blank" rel="noopener noreferrer">0009-0003-0412-3112</a></div>
+            <div class="k">Scholar</div><div class="v"><a href="https://scholar.google.com/citations?user=jJAkTD4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar profile</a></div>
+            <div class="k">Email</div><div class="v"><a href="mailto:alireza@mahvelatistudio.com">alireza@mahvelatistudio.com</a></div>
+          </div>
+        </div>
+
+        <div class="card glass">
+          <h2>Research identity</h2>
+          <p>
+            <strong>Operational SciML for resilient water infrastructure:</strong>
+            forecasting + anomaly detection + resilience metrics, grounded in process memory, kinetics, and
+            climate-regime shifts. In parallel, I contribute to sustainable carbon management (CCUS/ICCU).
+          </p>
+          <div class="pills" style="margin-top:12px">
+            <div class="pill">Activated sludge · nitrification/denitrification</div>
+            <div class="pill">Regime-aware modeling</div>
+            <div class="pill">Leakage-safe evaluation</div>
+            <div class="pill">Uncertainty / OOD detection</div>
+            <div class="pill">Environmental genomics (interest)</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOCUS -->
+      <section id="focus">
+        <div class="section-title">
+          <h2>Focus</h2>
+          <span>What I build (research-grade, deployment-aware)</span>
+        </div>
+
+        <div class="grid3">
+          <div class="card glass">
+            <h3>WWTP process intelligence</h3>
+            <p>Operational forecasting, anomaly detection, and decision-ready monitoring across multi-contaminant signals and operational states.</p>
+          </div>
+          <div class="card glass">
+            <h3>Resilience under climate stress</h3>
+            <p>Regime-aware evaluation for wet-weather shocks, heatwaves, drought/low-flow, and recovery dynamics with interpretable metrics.</p>
+          </div>
+          <div class="card glass">
+            <h3>Low-carbon systems & CCUS/ICCU</h3>
+            <p>Integrated capture–conversion thinking, audit-ready TEA/LCA hooks, and experimental sorbent work aimed at realistic conditions.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEMOS -->
+      <section id="demos">
+        <div class="section-title">
+          <h2>Demos</h2>
+          <span>Deployed prototypes (decision-ready, not slideware)</span>
+        </div>
+
+        <div class="demo-grid">
+          <article class="card glass demo">
+            <div class="meta">
+              <span class="chip ok">Live</span>
+              <span class="chip">Streamlit</span>
+              <span class="chip">Render</span>
+              <span class="chip">Net-zero decision support</span>
+            </div>
+            <h3>K-NetZero Compass</h3>
+            <p>
+              A deployable decision-support demo for net-zero planning. Built to be transparent, auditable,
+              and extendable (future LCA/TEA hooks and uncertainty-aware comparisons).
+              <span style="color:var(--muted2)">(Free tier may sleep/wake.)</span>
+            </p>
+            <div class="actions">
+              <a class="btn primary" href="https://k-netzero-compass.onrender.com" target="_blank" rel="noopener noreferrer">
+                Open app
+              </a>
+              <a class="btn" href="#contact">Request demo extension</a>
+            </div>
+          </article>
+
+          <article class="card glass demo">
+            <div class="meta">
+              <span class="chip warn">Coming</span>
+              <span class="chip">Audit-ready</span>
+              <span class="chip">Digital twin</span>
+            </div>
+            <h3>Next demos (in build)</h3>
+            <p>
+              A set of small, deployable prototypes: anomaly monitoring dashboards, resilience scoring (4R/CRPS),
+              and carbon-accounting workflows designed for reproducibility and real adoption.
+            </p>
+            <div class="actions">
+              <a class="btn" href="#projects">See project pipeline</a>
+              <a class="btn" href="#contact">Collaborate</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="section-title">
+          <h2>Projects</h2>
+          <span>Filter by category (apps · AI · process · CCUS)</span>
+        </div>
+
+        <!-- Dynamic filter tabs -->
+        <div class="filters" role="tablist" aria-label="Project filters">
+          <button class="filter-btn" role="tab" aria-selected="true" data-filter="all">All</button>
+          <button class="filter-btn" role="tab" aria-selected="false" data-filter="apps">Apps & demos</button>
+          <button class="filter-btn" role="tab" aria-selected="false" data-filter="ai">AI systems</button>
+          <button class="filter-btn" role="tab" aria-selected="false" data-filter="process">Process engineering</button>
+          <button class="filter-btn" role="tab" aria-selected="false" data-filter="ccus">CCUS / ICCU</button>
+        </div>
+
+        <div class="projects" id="projectGrid">
+          <article class="card glass proj" data-tags="ai,process">
+            <div class="meta">
+              <span class="chip">WWTP resilience</span>
+              <span class="chip ok">Active</span>
+              <span class="chip">Forecasting + anomaly</span>
+            </div>
+            <h3>Operational SciML for WWTP water-quality resilience under climate stress</h3>
+            <p>
+              Multi-contaminant forecasting and anomaly detection for real plant conditions:
+              daily sampling constraints, wet-weather shocks, regime shifts, and sensor drift.
+              Outputs are decision-ready (risk-of-violation, early warnings, recovery metrics).
+            </p>
+            <div class="links">
+              <a href="#contact">Request 1-page summary</a>
+              <a href="#publications">Related work</a>
+            </div>
+          </article>
+
+          <article class="card glass proj" data-tags="ai,process">
+            <div class="meta">
+              <span class="chip">Environmental biotechnology</span>
+              <span class="chip warn">In build</span>
+              <span class="chip">Genomics-ready</span>
+            </div>
+            <h3>Pathway-aware monitoring: linking process states to microbial function signals</h3>
+            <p>
+              A framework to connect operational trajectories (DO/ORP, loading, salinity, temperature, wet-weather memory)
+              to microbial pathway indicators (nitrification/denitrification/Anammox proxies),
+              designed to integrate metagenomic/16S features as “biological sensors.”
+            </p>
+            <div class="links">
+              <a href="#contact">Discuss integration</a>
+            </div>
+          </article>
+
+          <article class="card glass proj" data-tags="process,ai">
+            <div class="meta">
+              <span class="chip">Biogas · Anaerobic digestion</span>
+              <span class="chip warn">Proposal-ready</span>
+              <span class="chip">Process modeling</span>
+            </div>
+            <h3>AD/biogas process intelligence for stability, VFA risk, and energy recovery</h3>
+            <p>
+              Predictive monitoring for AD stability (VFA/alkalinity/pH dynamics),
+              early warnings for upsets, and controllable levers for energy-positive operation.
+              Built to be compatible with lab-scale reactor datasets and biotech workflows.
+            </p>
+            <div class="links">
+              <a href="#contact">Request draft plan</a>
+            </div>
+          </article>
+
+          <article class="card glass proj" data-tags="ccus,process">
+            <div class="meta">
+              <span class="chip">Carbon capture / CCUS</span>
+              <span class="chip ok">Published</span>
+              <span class="chip">ICCU/ICCC</span>
+            </div>
+            <h3>Integrated CO₂ capture–conversion (ICCU): review + experimental sorbent work</h3>
+            <p>
+              Published review on sustainable CO₂ capture, conversion, and integrated strategies.
+              Experimental work in preparation on nanoparticle-augmented diatom biosilica sorbents:
+              humidity/temperature robustness and recyclability across cycles.
+            </p>
+            <div class="links">
+              <a href="https://doi.org/10.3390/ijms27020847" target="_blank" rel="noopener noreferrer">DOI</a>
+            </div>
+          </article>
+
+          <article class="card glass proj" data-tags="apps,ai">
+            <div class="meta">
+              <span class="chip">Deployment</span>
+              <span class="chip ok">Live</span>
+              <span class="chip">Streamlit</span>
+            </div>
+            <h3>K-NetZero Compass (deployed demo)</h3>
+            <p>
+              A deployed prototype for net-zero decision support.
+              Designed as a foundation for uncertainty-aware comparisons and audit-ready reporting.
+            </p>
+            <div class="links">
+              <a href="https://k-netzero-compass.onrender.com" target="_blank" rel="noopener noreferrer">Open app</a>
+              <a href="#demos">Details</a>
+            </div>
+          </article>
+
+          <article class="card glass proj" data-tags="apps,ai">
+            <div class="meta">
+              <span class="chip">Dashboarding</span>
+              <span class="chip warn">Coming</span>
+              <span class="chip">Resilience metrics</span>
+            </div>
+            <h3>4R/CRPS resilience scoring dashboard (prototype)</h3>
+            <p>
+              A decision layer that converts predictions into operational resilience: time-in-safe, headroom, recovery,
+              and actionable intervention signals—built to remain interpretable under stress regimes.
+            </p>
+            <div class="links">
+              <a href="#contact">Discuss build</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- PUBLICATIONS -->
+      <section id="publications" class="pubs">
+        <div class="section-title">
+          <h2>Publications</h2>
+          <span>Verified identifiers preferred (DOI/ORCID)</span>
+        </div>
+
+        <div class="card glass">
+          <div class="pub">
+            <p class="t">From Emissions to Assets: Sustainable Technologies for CO₂ Capture, Conversion, and Integrated Strategies</p>
+            <p class="d">
+              International Journal of Molecular Sciences (2026).
+              DOI:
+              <a href="https://doi.org/10.3390/ijms27020847" target="_blank" rel="noopener noreferrer">10.3390/ijms27020847</a>
+            </p>
+            <div class="tags">
+              <span class="chip">CCUS</span><span class="chip">ICCU/ICCC</span><span class="chip">CO₂ conversion</span>
+            </div>
+          </div>
+
+          <div class="pub">
+            <p class="t">Nanoparticle-Augmented Diatom Biosilica as a Sustainable Sorbent for CO₂ Capture (in preparation)</p>
+            <p class="d">
+              Baseline performance, humidity/temperature effects, concentration dependence, and recyclability across cycles.
+            </p>
+            <div class="tags">
+              <span class="chip">Sorbents</span><span class="chip">Humidity robustness</span><span class="chip">Recyclability</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact">
+        <div class="section-title">
+          <h2>Contact</h2>
+          <span>Short and direct</span>
+        </div>
+
+        <div class="card glass">
+          <p>
+            Email: <strong><a href="mailto:alireza@mahvelatistudio.com">alireza@mahvelatistudio.com</a></strong><br/>
+            ORCID: <strong><a href="https://orcid.org/0009-0003-0412-3112" target="_blank" rel="noopener noreferrer">0009-0003-0412-3112</a></strong>
+          </p>
+
+          <div class="row" aria-label="Contact links">
+            <a href="https://scholar.google.com/citations?user=jJAkTD4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            <a href="https://github.com/Alirezashams-ux" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+
+          <p style="margin-top:14px; color:var(--muted2); font-size:12px">
+            Note: For supervisors, a minimal page wins: affiliation, 2–4 strongest projects, and DOI-backed publications.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="y"></span> Mahvelati Studio</div>
+      <div>Built for clarity · <span id="buildNote">—</span></div>
+    </footer>
+  </div>
+
+  <script>
+    // Footer year
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Prefer manual build stamp if present
+    const buildMeta = document.querySelector('meta[name="site-build"]')?.getAttribute("content");
+    const d = buildMeta ? new Date(buildMeta + "T00:00:00") : new Date();
+    const fmt = new Intl.DateTimeFormat(undefined, { year: "numeric", month: "short", day: "2-digit" });
+    document.getElementById("lastUpdated").textContent = fmt.format(d);
+    document.getElementById("buildNote").textContent = "Last refreshed " + fmt.format(d);
+
+    // Mobile menu toggle
+    const toggle = document.getElementById("navToggle");
+    const panel = document.getElementById("mobilePanel");
+    toggle?.addEventListener("click", () => {
+      const open = panel.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(open));
+    });
+
+    // Close mobile panel on link click
+    panel?.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (!a) return;
+      panel.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+
+    // Projects filter (tabs)
+    const filterButtons = Array.from(document.querySelectorAll(".filter-btn"));
+    const cards = Array.from(document.querySelectorAll("#projectGrid .proj"));
+
+    function setFilter(filter){
+      filterButtons.forEach(b => b.setAttribute("aria-selected", String(b.dataset.filter === filter)));
+      cards.forEach(card => {
+        const tags = (card.dataset.tags || "").split(",").map(s => s.trim());
+        const show = (filter === "all") || tags.includes(filter);
+        card.style.display = show ? "" : "none";
+      });
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener("click", () => setFilter(btn.dataset.filter));
+      btn.addEventListener("keydown", (e) => {
+        // Simple keyboard navigation (left/right)
+        if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+        e.preventDefault();
+        const i = filterButtons.indexOf(btn);
+        const next = e.key === "ArrowRight" ? filterButtons[i+1] : filterButtons[i-1];
+        (next || btn).focus();
+      });
+    });
+
+    // Nav active-link highlighting via IntersectionObserver
+    const navLinks = Array.from(document.querySelectorAll('[data-nav]'));
+    const sections = ["about","focus","demos","projects","publications","contact"]
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    const linkById = new Map(navLinks.map(a => [a.dataset.nav, a]));
+
+    const obs = new IntersectionObserver((entries) => {
+      // pick the most visible section
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+
+      navLinks.forEach(a => a.classList.remove("is-active"));
+      const id = visible.target.id;
+      const active = linkById.get(id);
+      if (active) active.classList.add("is-active");
+    }, { rootMargin: "-35% 0px -55% 0px", threshold: [0.15, 0.25, 0.4, 0.6] });
+
+    sections.forEach(s => obs.observe(s));
+  </script>
+</body>
+</html>

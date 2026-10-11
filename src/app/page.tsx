@@ -10,7 +10,7 @@ export default function HomePage() {
         <div className="portrait-column">
           <div className="portrait-frame">
             <Image
-              src="/images/home-page-photo.jpg"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/home-page-photo.jpg`}
               alt="Alireza Mahvelati Shamsabadi"
               width={900}
               height={1100}
